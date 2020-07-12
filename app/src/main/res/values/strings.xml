@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Kibasi</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navigation_explore">Tafuta</string>
+    <string name="navigation_ticket">Tiketi</string>
+    <string name="navigation_passenger">Msafiri</string>
+
+</resources>

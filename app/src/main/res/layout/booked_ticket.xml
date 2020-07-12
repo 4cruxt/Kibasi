@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent">
+
+    <ImageView
+        android:id="@+id/ticket_logo"
+        android:layout_width="177dp"
+        android:layout_height="98dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/onboard1" />
+
+    <ImageView
+        android:id="@+id/bus_swap_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ticket_logo"
+        app:srcCompat="@drawable/swap_horiz_24dp" />
+
+    <TextView
+        android:id="@+id/from_ticket_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="17dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Dar es Salaam"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/bus_swap_icon"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ticket_logo" />
+
+    <TextView
+        android:id="@+id/to_ticket_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Shinyanga"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bus_swap_icon"
+        app:layout_constraintTop_toBottomOf="@+id/ticket_logo" />
+
+    <TextView
+        android:id="@+id/date_ticket_booked_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="70dp"
+        android:text="Tarehe"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/to_ticket_text"
+        app:layout_constraintTop_toBottomOf="@+id/bus_swap_icon" />
+
+    <TextView
+        android:id="@+id/date_ticket_booked_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="7/7/2020"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/date_ticket_booked_title"
+        app:layout_constraintTop_toBottomOf="@+id/date_ticket_booked_title" />
+
+    <TextView
+        android:id="@+id/seat_ticket_booked_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Siti "
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/date_ticket_booked_title"
+        app:layout_constraintTop_toBottomOf="@+id/date_ticket_booked_text" />
+
+    <TextView
+        android:id="@+id/seat_ticket_booked_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="8C"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/seat_ticket_booked_title"
+        app:layout_constraintTop_toBottomOf="@+id/seat_ticket_booked_title" />
+
+    <TextView
+        android:id="@+id/depart_time_ticket_booked_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Kuondoka"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/seat_ticket_booked_title"
+        app:layout_constraintTop_toBottomOf="@+id/seat_ticket_booked_text" />
+
+    <TextView
+        android:id="@+id/dprt_time_ticket_booked_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="03:00"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/depart_time_ticket_booked_title"
+        app:layout_constraintTop_toBottomOf="@+id/depart_time_ticket_booked_title" />
+
+    <TextView
+        android:id="@+id/time_locator_ticket_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:text="asubuhi"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dprt_time_ticket_booked_text"
+        app:layout_constraintStart_toEndOf="@+id/dprt_time_ticket_booked_text" />
+
+    <TextView
+        android:id="@+id/bus_number_ticket_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Basi"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/depart_time_ticket_booked_title"
+        app:layout_constraintTop_toBottomOf="@+id/dprt_time_ticket_booked_text" />
+
+    <TextView
+        android:id="@+id/bus_number_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="VJ134"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/bus_number_ticket_title"
+        app:layout_constraintTop_toBottomOf="@+id/bus_number_ticket_title" />
+
+    <TextView
+        android:id="@+id/confrmation_code_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:text="Namba ya uhakiki"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bus_number_ticket_title" />
+
+    <TextView
+        android:id="@+id/confirmation_code_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="OSJ3LD32o283j2"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/confrmation_code_title"
+        app:layout_constraintTop_toBottomOf="@+id/confrmation_code_title" />
+
+    <TextView
+        android:id="@+id/passenger_ticket_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Msafiri"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/confrmation_code_title"
+        app:layout_constraintTop_toBottomOf="@+id/confirmation_code_text" />
+
+    <TextView
+        android:id="@+id/passenger_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Fretcher Mnyamwezi"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/passenger_ticket_title"
+        app:layout_constraintTop_toBottomOf="@+id/passenger_ticket_title" />
+
+    <ImageView
+        android:id="@+id/qrcode_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/confrmation_code_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/date_ticket_booked_title"
+        app:srcCompat="@drawable/ic_launcher_background" />
+</androidx.constraintlayout.widget.ConstraintLayout>

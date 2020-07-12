@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bss_constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundWhite"
+    tools:context=".BusSeatSelectorFragment">
+
+    <FrameLayout
+        android:id="@+id/bss_layout_background"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bss_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Chagua siti!"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bss_swap_bus_icon"
+        android:layout_width="60dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bss_title_text"
+        app:srcCompat="@drawable/swap_horiz_24dp" />
+
+    <TextView
+        android:id="@+id/bss_from_region_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Dar es Salaam"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/bss_swap_bus_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bss_title_text" />
+
+    <TextView
+        android:id="@+id/bss_to_region_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Shinyanga"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bss_swap_bus_icon"
+        app:layout_constraintTop_toBottomOf="@+id/bss_title_text" />
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/bus_card_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bss_swap_bus_icon" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bss_seat_include"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="5dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        tools:showIn="@layout/fragment_bus_seat_selector">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bss_seat_card_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/booked_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/booked_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="Ina mtu"
+                android:textColor="#009688"
+                app:layout_constraintBottom_toBottomOf="@+id/booked_icon"
+                app:layout_constraintStart_toEndOf="@+id/booked_icon"
+                app:layout_constraintTop_toTopOf="@+id/booked_icon" />
+
+            <ImageView
+                android:id="@+id/available_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                app:layout_constraintBottom_toBottomOf="@+id/booked_icon"
+                app:layout_constraintStart_toEndOf="@+id/booked_text"
+                app:layout_constraintTop_toTopOf="@+id/booked_icon"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/available_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="Haina mtu"
+                android:textColor="#009688"
+                app:layout_constraintBottom_toBottomOf="@+id/available_icon"
+                app:layout_constraintStart_toEndOf="@+id/available_icon"
+                app:layout_constraintTop_toTopOf="@+id/available_icon" />
+
+            <ImageView
+                android:id="@+id/passenger_seat_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="40dp"
+                app:layout_constraintBottom_toBottomOf="@+id/available_icon"
+                app:layout_constraintStart_toEndOf="@+id/available_text"
+                app:layout_constraintTop_toTopOf="@+id/available_icon"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/passenger_seat_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:text="Siti yako"
+                android:textColor="#009688"
+                app:layout_constraintBottom_toBottomOf="@+id/passenger_seat_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/passenger_seat_icon"
+                app:layout_constraintTop_toTopOf="@+id/passenger_seat_icon" />
+
+            <View
+                android:id="@+id/bss_divider"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:background="@color/colorBackgroundGreen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/available_icon" />
+
+            <GridView
+                android:id="@+id/bss_left_gridview"
+                android:layout_width="160dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginBottom="4dp"
+                android:columnWidth="5dp"
+                android:gravity="center"
+                android:horizontalSpacing="5dp"
+                android:numColumns="2"
+                android:stretchMode="spacingWidthUniform"
+                android:verticalSpacing="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bss_divider" />
+
+            <GridView
+                android:id="@+id/bss_right_gridview"
+                android:layout_width="160dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:columnWidth="0dp"
+                android:gravity="center"
+                android:horizontalSpacing="5dp"
+                android:numColumns="2"
+                android:stretchMode="spacingWidthUniform"
+                android:verticalSpacing="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bss_divider" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
