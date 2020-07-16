@@ -21,6 +21,7 @@ public class BusSelectorFragment extends Fragment
 
     private RecyclerView _busRecyclerview;
     private Bus[] _busItem;
+    private BusAdapter _busAdapter;
 
     public BusSelectorFragment()
     {
@@ -42,9 +43,11 @@ public class BusSelectorFragment extends Fragment
     private void initRecyclerview()
     {
         dataList();
-        BusAdapter _busAdapter = new BusAdapter(_busItem);
+        _busAdapter = new BusAdapter(this.getActivity(), _busItem);
         _busRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         _busRecyclerview.setAdapter(_busAdapter);
+        _busAdapter.notifyDataSetChanged();
+
     }
 
     private void dataList()
@@ -53,4 +56,5 @@ public class BusSelectorFragment extends Fragment
 
         _busItem = new Bus[]{new Bus("Shabiby Bus Service", "7.30", _pricePlaceholder + " 32,000", "02:00", "9:30", 0), new Bus("Expo Bus Service", "12", _pricePlaceholder + " 23,000", "02:00", "9:30", 0), new Bus("Red Bus Service", "32.20", _pricePlaceholder + " 45,000", "02:00", "9:30", 0), new Bus("Star Bus", "34.40", _pricePlaceholder + " 54,000", "02:00", "9:30", 0), new Bus("Travelo Service", "36.06", _pricePlaceholder + " 33,000", "02:00", "9:30", 0), new Bus("Tashirif Service", "78", _pricePlaceholder + " 55,000", "02:00", "9:30", 0), new Bus("Torinto Bus", "7", _pricePlaceholder + " 54,000", "02:00", "9:30", 0), new Bus("Ngarika Bus", "2", _pricePlaceholder + "32,000", "02:00", "9:30", 0), new Bus("Dar Lux Service", "23", _pricePlaceholder + " 87,000", "02:00", "9:30", 0), new Bus("Abood Bus", "7.30", _pricePlaceholder + " 21,000", "02:00", "9:30", 0),};
     }
+
 }

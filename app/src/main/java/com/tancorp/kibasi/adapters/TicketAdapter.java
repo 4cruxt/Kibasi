@@ -1,24 +1,21 @@
 package com.tancorp.kibasi.adapters;
 
-import android.os.Build;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.tancorp.kibasi.BookedTicketFragment;
+import com.tancorp.kibasi.BookedTicketActivity;
 import com.tancorp.kibasi.R;
 import com.tancorp.kibasi.models.Ticket;
 
-import java.util.Objects;
 
 public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder>
 {
@@ -39,13 +36,25 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position)
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position)
     {
 //        holder._busTicketImage.setImageResource();
         holder._busTicketName.setText(_ticketListData[position].getBusNameTicket());
         holder._busTicketDate.setText(_ticketListData[position].getBusDateTicket());
+        holder._layoutContainer.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                //todo: Implement clicks functionality on a ticket.
+                Toast.makeText(v.getContext(), _ticketListData[position].getBusNameTicket() + " selected!", Toast.LENGTH_SHORT).show();
+                Intent _ticketIntent = new Intent(v.getContext(), BookedTicketActivity.class);
+                v.getContext().startActivity(_ticketIntent);
+            }
+        });
 
     }
+
 
     @Override
     public int getItemCount()
@@ -61,7 +70,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
         public TextView _busTicketDate;
         public ConstraintLayout _layoutContainer;
 
-        public ViewHolder(@NonNull View itemView)
+        public ViewHolder(@NonNull final View itemView)
         {
             super(itemView);
             this._busTicketImage = itemView.findViewById(R.id.booked_bus_ticket_image);
@@ -69,28 +78,8 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
             this._busTicketDate = itemView.findViewById(R.id.booked_ticket_date);
             this._layoutContainer = itemView.findViewById(R.id.ticket_container);
 
-            itemView.setOnClickListener(new View.OnClickListener()
-            {
-                @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-                @Override
-                public void onClick(View v)
-                {
-                    Fragment _bookedTicketFragment = new BookedTicketFragment();
-                    loadFragment(_bookedTicketFragment);
-                }
-            });
-
         }
 
-        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-        private void loadFragment(Fragment fragment)
-        {
-            //todo: Make a fragment start another fragment using the same activity the main activity.
-            FragmentTransaction transaction = Objects.requireNonNull(fragment.getActivity()).getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container, fragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
-        }
 
     }
 }

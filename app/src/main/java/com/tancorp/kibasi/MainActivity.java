@@ -11,6 +11,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.tancorp.kibasi.navigations.ExploreFragment;
+import com.tancorp.kibasi.navigations.PassengerFragment;
+import com.tancorp.kibasi.navigations.TicketFragment;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -29,11 +31,11 @@ public class MainActivity extends AppCompatActivity
                     loadFragment(_fragment);
                     return true;
                 case R.id.navigation_ticket:
-                    _fragment = new BookedTicketFragment();
+                    _fragment = new TicketFragment();
                     loadFragment(_fragment);
                     return true;
                 case R.id.navigation_passenger:
-                    _fragment = new BusSeatSelectorFragment();
+                    _fragment = new PassengerFragment();
                     loadFragment(_fragment);
                     return true;
             }

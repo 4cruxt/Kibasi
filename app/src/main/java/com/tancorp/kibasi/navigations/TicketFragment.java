@@ -23,6 +23,7 @@ public class TicketFragment extends Fragment
 
     private Ticket[] _ticketItem;
     private RecyclerView _ticketRecyclerview;
+    private TicketAdapter _ticketAdapter;
 
     public TicketFragment()
     {
@@ -49,14 +50,15 @@ public class TicketFragment extends Fragment
     private void initRecyclerview()
     {
         ticketDataList();
-        TicketAdapter _ticketAdapter = new TicketAdapter(_ticketItem);
+        _ticketAdapter = new TicketAdapter(_ticketItem);
         _ticketRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         _ticketRecyclerview.setAdapter(_ticketAdapter);
+        _ticketAdapter.notifyDataSetChanged();
+
     }
 
     private void ticketDataList()
     {
         _ticketItem = new Ticket[]{new Ticket(0, "Shabiby Service", "7/7/2020"), new Ticket(0, "Expo Service", "8/5/2020"), new Ticket(0, "Star Bus", "2/2/2019"),};
-
     }
 }

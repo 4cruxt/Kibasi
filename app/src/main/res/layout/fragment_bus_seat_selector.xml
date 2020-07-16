@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackgroundWhite"
-    tools:context=".BusSeatSelectorFragment">
+    tools:context=".BusSeatSelectorActivity">
 
     <FrameLayout
         android:id="@+id/bss_layout_background"
@@ -73,6 +73,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bss_swap_bus_icon" />
 
+    <Button
+        android:id="@+id/bss_pay_button"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:background="@drawable/white_background"
+        android:text="Lipa 3"
+        android:textColor="@color/colorAccent"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bss_swap_bus_icon"
+        app:layout_constraintTop_toTopOf="@+id/bss_title_text" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/bss_seat_include"
         android:layout_width="match_parent"
@@ -101,7 +113,7 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_launcher_background" />
+                app:srcCompat="@drawable/occupied_seat" />
 
             <TextView
                 android:id="@+id/booked_text"
@@ -124,7 +136,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/booked_icon"
                 app:layout_constraintStart_toEndOf="@+id/booked_text"
                 app:layout_constraintTop_toTopOf="@+id/booked_icon"
-                app:srcCompat="@drawable/ic_launcher_background" />
+                app:srcCompat="@drawable/available_seat" />
 
             <TextView
                 android:id="@+id/available_text"
@@ -147,7 +159,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/available_icon"
                 app:layout_constraintStart_toEndOf="@+id/available_text"
                 app:layout_constraintTop_toTopOf="@+id/available_icon"
-                app:srcCompat="@drawable/ic_launcher_background" />
+                app:srcCompat="@drawable/selected_seat" />
 
             <TextView
                 android:id="@+id/passenger_seat_text"
@@ -184,12 +196,13 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginLeft="32dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
                 android:columnWidth="5dp"
                 android:gravity="center"
                 android:horizontalSpacing="5dp"
                 android:numColumns="2"
-                android:stretchMode="spacingWidthUniform"
+                android:stretchMode="columnWidth"
                 android:verticalSpacing="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -199,13 +212,15 @@
                 android:id="@+id/bss_right_gridview"
                 android:layout_width="160dp"
                 android:layout_height="0dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginRight="32dp"
-                android:columnWidth="0dp"
+                android:layout_marginBottom="4dp"
+                android:columnWidth="5dp"
                 android:gravity="center"
                 android:horizontalSpacing="5dp"
                 android:numColumns="2"
-                android:stretchMode="spacingWidthUniform"
+                android:stretchMode="columnWidth"
                 android:verticalSpacing="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
