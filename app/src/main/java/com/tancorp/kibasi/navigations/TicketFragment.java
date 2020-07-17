@@ -20,6 +20,7 @@ import com.tancorp.kibasi.models.Ticket;
  */
 public class TicketFragment extends Fragment
 {
+    public static final int TICKET_FRAGMENT_ID = 2;
 
     private Ticket[] _ticketItem;
     private RecyclerView _ticketRecyclerview;

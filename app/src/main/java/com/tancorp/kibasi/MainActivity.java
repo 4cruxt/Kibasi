@@ -14,11 +14,16 @@ import com.tancorp.kibasi.navigations.ExploreFragment;
 import com.tancorp.kibasi.navigations.PassengerFragment;
 import com.tancorp.kibasi.navigations.TicketFragment;
 
+import static com.tancorp.kibasi.navigations.ExploreFragment.EXPLORE_FRAGMENT_ID;
+import static com.tancorp.kibasi.navigations.PassengerFragment.PASSENGER_FRAGMENT_ID;
+import static com.tancorp.kibasi.navigations.TicketFragment.TICKET_FRAGMENT_ID;
+
 public class MainActivity extends AppCompatActivity
 {
 
     private ActionBar _toolbar;
     private Fragment _fragment;
+
     private BottomNavigationView.OnNavigationItemSelectedListener _onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener()
     {
         @Override
@@ -43,6 +48,8 @@ public class MainActivity extends AppCompatActivity
             return false;
         }
     };
+    private String _fragment_id;
+    private BottomNavigationView _navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -52,11 +59,45 @@ public class MainActivity extends AppCompatActivity
 
         _toolbar = getSupportActionBar();
 
-        BottomNavigationView _navigationView = findViewById(R.id.bottom_navigation_view);
+        _navigationView = findViewById(R.id.bottom_navigation_view);
         _navigationView.setOnNavigationItemSelectedListener(_onNavigationItemSelectedListener);
 
-        _fragment = new ExploreFragment();
-        loadFragment(_fragment);
+        _fragment_id = getIntent().getStringExtra("Fragment_id");
+
+        fragmentSwitch();
+
+
+    }
+
+    private void fragmentSwitch()
+    {
+        if(_fragment_id != null)
+        {
+            if(_fragment_id.contains("" + EXPLORE_FRAGMENT_ID))
+            {
+                _fragment = new ExploreFragment();
+                loadFragment(_fragment);
+                _navigationView.getMenu().getItem(0).setChecked(true);
+            }
+            else if(_fragment_id.contains("" + TICKET_FRAGMENT_ID))
+            {
+                _fragment = new TicketFragment();
+                loadFragment(_fragment);
+                _navigationView.getMenu().getItem(1).setChecked(true);
+            }
+            else if(_fragment_id.contains("" + PASSENGER_FRAGMENT_ID))
+            {
+                _fragment = new PassengerFragment();
+                loadFragment(_fragment);
+                _navigationView.getMenu().getItem(2).setChecked(true);
+            }
+
+        }
+        else
+        {
+            _fragment = new ExploreFragment();
+            loadFragment(_fragment);
+        }
     }
 
     private void loadFragment(Fragment fragment)

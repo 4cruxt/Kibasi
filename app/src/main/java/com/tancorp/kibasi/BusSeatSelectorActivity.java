@@ -1,5 +1,6 @@
 package com.tancorp.kibasi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -140,6 +141,17 @@ public class BusSeatSelectorActivity extends AppCompatActivity
             _bssPayButton.setVisibility(View.VISIBLE);
             _bssPayButton.setText(_ticketNumber);
 
+            _bssPayButton.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Intent _ticketPayment = new Intent(BusSeatSelectorActivity.this, TicketPaymentActivity.class);
+                    startActivity(_ticketPayment);
+                    finish();
+                }
+            });
+
         }
         else
         {
@@ -147,6 +159,5 @@ public class BusSeatSelectorActivity extends AppCompatActivity
         }
 
     }
-
 
 }

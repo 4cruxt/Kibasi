@@ -14,6 +14,7 @@ import com.tancorp.kibasi.R;
  */
 public class PassengerFragment extends Fragment
 {
+    public static final int PASSENGER_FRAGMENT_ID = 3;
 
     public PassengerFragment()
     {

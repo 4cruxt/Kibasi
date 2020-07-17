@@ -32,6 +32,7 @@ import java.util.Objects;
  */
 public class ExploreFragment extends Fragment
 {
+    public static final int EXPLORE_FRAGMENT_ID = 1;
 
     private List<String> _regions;
     private AwesomeSpinner _fromSpinner;

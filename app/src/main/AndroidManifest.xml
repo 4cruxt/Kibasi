@@ -28,6 +28,10 @@
         <activity android:name=".BusSeatSelectorActivity" />
         <activity android:name=".BookedTicketActivity" />
 
+        <activity
+            android:name=".TicketPaymentActivity"
+            android:theme="@style/TicketTheme" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

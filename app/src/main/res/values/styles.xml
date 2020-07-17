@@ -19,7 +19,7 @@
 
     <style name="TicketTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimaryDark">@color/colorBackgroundWhite</item>
-        <item name="colorAccent">@color/colorBackgroundWhite</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
 </resources>
