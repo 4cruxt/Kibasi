@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundWhite"
+    tools:context=".TicketPaymentActivity">
+
+    <ImageView
+        android:id="@+id/payment_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_payment_24dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/traveler_card"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/payment_icon">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/traveler_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_traveler_24dp" />
+
+            <EditText
+                android:id="@+id/traveler_name"
+                android:layout_width="300dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:background="@color/colorBackgroundGreen"
+                android:ems="10"
+                android:hint="Anayesafiri"
+                android:inputType="textPersonName"
+                android:paddingLeft="7dp"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="#AEABAB"
+                app:layout_constraintBottom_toBottomOf="@+id/traveler_icon"
+                app:layout_constraintStart_toEndOf="@+id/traveler_icon"
+                app:layout_constraintTop_toTopOf="@+id/traveler_icon" />
+
+            <ImageView
+                android:id="@+id/payer_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/traveler_icon"
+                app:srcCompat="@drawable/person_24dp" />
+
+            <EditText
+                android:id="@+id/payer_name"
+                android:layout_width="300dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:background="@color/colorBackgroundGreen"
+                android:ems="10"
+                android:hint="Anayelipa"
+                android:inputType="textPersonName"
+                android:paddingLeft="7dp"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="#AEABAB"
+                app:layout_constraintBottom_toBottomOf="@+id/payer_icon"
+                app:layout_constraintStart_toEndOf="@+id/payer_icon"
+                app:layout_constraintTop_toTopOf="@+id/payer_icon" />
+
+            <Button
+                android:id="@+id/payer_payment_activator_button"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/selected_seat"
+                android:text="lipia"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/payer_name"
+                app:layout_constraintStart_toEndOf="@+id/payer_icon"
+                app:layout_constraintTop_toBottomOf="@+id/payer_name" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bus_payment_details_card"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/traveler_card">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/bpd_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="TAARIFA ZA ULIPAJI"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/bpd_bus_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="BASI"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bpd_title" />
+
+            <TextView
+                android:id="@+id/bpd_bus_name_text"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Shabiby Bus Service"
+                android:textColor="#AEABAB"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/bpd_bus_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/bpd_payment_window_text"
+                app:layout_constraintTop_toTopOf="@+id/bpd_bus_name" />
+
+            <TextView
+                android:id="@+id/bpd_ticket_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:text="BEI (Tshs.)"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bpd_bus_name" />
+
+            <TextView
+                android:id="@+id/bpd_ticket_price_text"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="56000/="
+                android:textColor="#AEABAB"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/bpd_ticket_price"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/bpd_payment_window_text"
+                app:layout_constraintTop_toTopOf="@+id/bpd_ticket_price" />
+
+            <TextView
+                android:id="@+id/bpd_payment_method"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:text="LIPA KWA"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bpd_ticket_price" />
+
+            <TextView
+                android:id="@+id/bpd_payment_method_text"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Mpesa, Tigopesa, Halopesa, AirtelMoney, Tpesa"
+                android:textColor="#AEABAB"
+                android:textStyle="bold"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toBottomOf="@+id/bpd_payment_method"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/bpd_payment_window_text"
+                app:layout_constraintTop_toTopOf="@+id/bpd_payment_method" />
+
+            <TextView
+                android:id="@+id/bpd_payment_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:text="LIPA NAMBA"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bpd_payment_method" />
+
+            <TextView
+                android:id="@+id/bpd_payment_number_text"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="123455"
+                android:textColor="#AEABAB"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/bpd_payment_number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/bpd_payment_window_text"
+                app:layout_constraintTop_toTopOf="@+id/bpd_payment_number" />
+
+            <TextView
+                android:id="@+id/bpd_payment_window"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:text="KAMILISHA MALIPO"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bpd_payment_number" />
+
+            <TextView
+                android:id="@+id/bpd_payment_window_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Dakika 15"
+                android:textColor="#AEABAB"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/bpd_payment_window"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.20"
+                app:layout_constraintStart_toStartOf="@+id/bpd_title"
+                app:layout_constraintTop_toTopOf="@+id/bpd_payment_window" />
+
+            <TextView
+                android:id="@+id/bpd_extra_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:text="ZIADA"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bpd_payment_window" />
+
+            <TextView
+                android:id="@+id/bpd_extra_details_text"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                android:text="Lipa kwa kutumia number hiyo apo juu pia hakikisha unaandika jina la mlipaji. Tunashukuru kwa kuchagua gari letu katika safari yako."
+                android:textColor="#AEABAB"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/bpd_payment_window_text"
+                app:layout_constraintTop_toTopOf="@+id/bpd_extra_details" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
