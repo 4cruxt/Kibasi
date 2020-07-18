@@ -6,4 +6,5 @@
     <color name="colorTransparentWhite">#cccccc</color>
     <color name="colorBackgroundWhite">#F3FFFFFF</color>
     <color name="colorBackgroundGreen">#BED4F6D8</color>
+    <color name="colorErrorSpinner">#F3B9B5</color>
 </resources>

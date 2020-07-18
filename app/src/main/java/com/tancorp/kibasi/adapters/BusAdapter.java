@@ -16,15 +16,19 @@ import com.tancorp.kibasi.BusSeatSelectorActivity;
 import com.tancorp.kibasi.R;
 import com.tancorp.kibasi.models.Bus;
 
+import java.util.ArrayList;
+
 public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ViewHolder>
 {
     private Bus[] _busListData;
     private Context _context;
+    private ArrayList<String> _queryData;
 
-    public BusAdapter(Context context, Bus[] busListData)
+    public BusAdapter(Context context, Bus[] busListData, ArrayList<String> list)
     {
         this._context = context;
         this._busListData = busListData;
+        this._queryData = list;
     }
 
     @NonNull
@@ -40,13 +44,21 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ViewHolder>
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position)
     {
-        final String _busProfile = _busListData[position].getBusName();
-        holder._busName.setText(_busListData[position].getBusName());
+        //todo: remember to add bus image here.
 //        holder._busImage.setImageResource();
+        holder._busName.setText(_busListData[position].getBusName());
         holder._busJourneyTimeText.setText(_busListData[position].getBusJourneyTime());
         holder._busTicketPrice.setText(_busListData[position].getBusTicket());
         holder._busArrivalTime.setText(_busListData[position].getBusArrivalTime());
         holder._busDepartTime.setText(_busListData[position].getBusDepartTime());
+
+        //bus passed data
+        final ArrayList<String> _busDataHolder = new ArrayList<>();
+        _busDataHolder.add(_busListData[position].getBusName());
+        _busDataHolder.add(_busListData[position].getBusJourneyTime());
+        _busDataHolder.add(_busListData[position].getBusDepartTime());
+        _busDataHolder.add(_busListData[position].getBusArrivalTime());
+        _busDataHolder.add(_busListData[position].getBusTicket());
 
         holder._layoutContainer.setOnClickListener(new View.OnClickListener()
         {
@@ -54,6 +66,8 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ViewHolder>
             public void onClick(View v)
             {
                 Intent _seatSelectorIntent = new Intent(v.getContext(), BusSeatSelectorActivity.class);
+                _seatSelectorIntent.putStringArrayListExtra("searching_data", _queryData);
+                _seatSelectorIntent.putStringArrayListExtra("bus_card", _busDataHolder);
                 v.getContext().startActivity(_seatSelectorIntent);
             }
         });

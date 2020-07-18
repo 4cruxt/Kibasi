@@ -110,6 +110,7 @@ public class TicketPaymentActivity extends AppCompatActivity
                 String _travelerNames = _travelerName.getText().toString();
                 String _payerNames = _payerName.getText().toString();
 
+
                 Toast.makeText(TicketPaymentActivity.this, "Msafiri: " + _travelerNames + "\n" + "Mlipaji: " + _payerNames, Toast.LENGTH_SHORT).show();
                 _paymentDialog.dismiss();
 

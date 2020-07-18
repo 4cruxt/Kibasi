@@ -8,11 +8,12 @@ import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
@@ -32,7 +33,7 @@ import java.util.Objects;
  */
 public class ExploreFragment extends Fragment
 {
-    public static final int EXPLORE_FRAGMENT_ID = 1;
+    public static final int EXPLORE_FRAGMENT_ID = 0;
 
     private List<String> _regions;
     private AwesomeSpinner _fromSpinner;
@@ -40,6 +41,9 @@ public class ExploreFragment extends Fragment
     private Button _searchButton;
     private EditText _datePickerText;
     private DatePickerDialog _datePicker;
+    private Animation _animBlinking;
+    private ArrayList<String> _tempoStorage;
+
     private DatePickerDialog.OnDateSetListener _onDateSetListener = new DatePickerDialog.OnDateSetListener()
     {
         @SuppressLint("SetTextI18n")
@@ -68,6 +72,8 @@ public class ExploreFragment extends Fragment
         _searchButton = _view.findViewById(R.id.search_button);
         _datePickerText = _view.findViewById(R.id.date_picker_text);
 
+        _tempoStorage = new ArrayList<>();
+
         datePopup();
         prepareData();
         fromSpinner();
@@ -78,12 +84,67 @@ public class ExploreFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                Fragment _busSelectorFragment = new BusSelectorFragment();
-                loadFragment(_busSelectorFragment);
+
+                if(_fromSpinner.getSelectedItem() == null || _toSpinner.getSelectedItem() == null || _fromSpinner.getSelectedItem().equals(_toSpinner.getSelectedItem()) || _datePickerText.length() == 0)
+                {
+                    spinnerErrorChecker();
+                }
+                else
+                {
+                    String _travelling_from = _fromSpinner.getSelectedItem();
+                    String _travalling_to = _toSpinner.getSelectedItem();
+                    String _date = _datePickerText.getText().toString();
+
+                    _tempoStorage.add(_travelling_from);
+                    _tempoStorage.add(_travalling_to);
+                    _tempoStorage.add(_date);
+
+                    Bundle _searchingData = new Bundle();
+                    _searchingData.putStringArrayList("searching_results", _tempoStorage);
+
+                    Fragment _busSelectorFragment = new BusSelectorFragment();
+                    loadFragment(_busSelectorFragment, _searchingData);
+                }
+
             }
         });
 
         return _view;
+    }
+
+    private void errorAnimActivator()
+    {
+        _animBlinking = AnimationUtils.loadAnimation(getContext(), R.anim.blinking);
+
+        _fromSpinner.startAnimation(_animBlinking);
+        _toSpinner.startAnimation(_animBlinking);
+    }
+
+
+    private void spinnerErrorChecker()
+    {
+        if(_fromSpinner.getSelectedItem() == null || _toSpinner.getSelectedItem() == null || _fromSpinner.getSelectedItem().equals(_toSpinner.getSelectedItem()))
+        {
+            _fromSpinner.setBackgroundColor(getResources().getColor(R.color.colorErrorSpinner));
+            _toSpinner.setBackgroundColor(getResources().getColor(R.color.colorErrorSpinner));
+            errorAnimActivator();
+        }
+        else if(_fromSpinner.getSelectedItem() == null)
+        {
+            _fromSpinner.setBackgroundColor(getResources().getColor(R.color.colorErrorSpinner));
+
+            _fromSpinner.startAnimation(_animBlinking);
+        }
+        else if(_toSpinner.getSelectedItem() == null)
+        {
+            _toSpinner.setBackgroundColor(getResources().getColor(R.color.colorErrorSpinner));
+
+            _toSpinner.startAnimation(_animBlinking);
+        }
+        else if(_datePickerText.length() == 0)
+        {
+            _datePickerText.setError("Ingiza tarehe");
+        }
     }
 
     private void datePopup()
@@ -103,6 +164,9 @@ public class ExploreFragment extends Fragment
                 datePickerDialog(_year, _month, _day);
             }
         });
+
+        _datePickerText.setError(null);
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -120,9 +184,10 @@ public class ExploreFragment extends Fragment
             @Override
             public void onItemSelected(int position, String itemAtPosition)
             {
-                Toast.makeText(getContext(), "Umechagua " + itemAtPosition, Toast.LENGTH_SHORT).show();
+                //Get the selected Item.
             }
         });
+
     }
 
     private void fromSpinner()
@@ -133,7 +198,7 @@ public class ExploreFragment extends Fragment
             @Override
             public void onItemSelected(int position, String itemAtPosition)
             {
-                Toast.makeText(getContext(), "umechagua " + itemAtPosition, Toast.LENGTH_SHORT).show();
+                //Get the selected Item.
             }
         });
     }
@@ -185,8 +250,9 @@ public class ExploreFragment extends Fragment
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    private void loadFragment(Fragment fragment)
+    private void loadFragment(Fragment fragment, Bundle bundle)
     {
+        fragment.setArguments(bundle);
         FragmentTransaction transaction = Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, fragment);
         transaction.addToBackStack(null);

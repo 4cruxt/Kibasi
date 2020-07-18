@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity
 
     private ActionBar _toolbar;
     private Fragment _fragment;
+    public BottomNavigationView _navigationView;
+    private String _fragment_id;
 
     private BottomNavigationView.OnNavigationItemSelectedListener _onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener()
     {
@@ -48,8 +50,7 @@ public class MainActivity extends AppCompatActivity
             return false;
         }
     };
-    private String _fragment_id;
-    private BottomNavigationView _navigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -77,19 +78,19 @@ public class MainActivity extends AppCompatActivity
             {
                 _fragment = new ExploreFragment();
                 loadFragment(_fragment);
-                _navigationView.getMenu().getItem(0).setChecked(true);
+                _navigationView.getMenu().getItem(EXPLORE_FRAGMENT_ID).setChecked(true);
             }
             else if(_fragment_id.contains("" + TICKET_FRAGMENT_ID))
             {
                 _fragment = new TicketFragment();
                 loadFragment(_fragment);
-                _navigationView.getMenu().getItem(1).setChecked(true);
+                _navigationView.getMenu().getItem(TICKET_FRAGMENT_ID).setChecked(true);
             }
             else if(_fragment_id.contains("" + PASSENGER_FRAGMENT_ID))
             {
                 _fragment = new PassengerFragment();
                 loadFragment(_fragment);
-                _navigationView.getMenu().getItem(2).setChecked(true);
+                _navigationView.getMenu().getItem(PASSENGER_FRAGMENT_ID).setChecked(true);
             }
 
         }
@@ -100,11 +101,11 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    //todo: make sure each opened fragment is active on its own navigation bottom view.
     private void loadFragment(Fragment fragment)
     {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, fragment);
-        transaction.addToBackStack(null);
         transaction.commit();
     }
 }

@@ -21,6 +21,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
+@SuppressWarnings("ConstantConditions")
 public class BusSeatSelectorActivity extends AppCompatActivity
 {
 
@@ -39,6 +40,13 @@ public class BusSeatSelectorActivity extends AppCompatActivity
 
     private SeatAdapter _seatAdapterL;
     private SeatAdapter _seatAdapterR;
+    private TextView _bssFromText;
+    private TextView _bssToText;
+    private TextView _bssBusName;
+    private TextView _bssBusJourneyTime;
+    private TextView _bssBusDeparture;
+    private TextView _bssBusTicketPrice;
+    private TextView _bssBusArrivalTime;
 
 
     @Override
@@ -51,6 +59,15 @@ public class BusSeatSelectorActivity extends AppCompatActivity
         _bssRightGridview = findViewById(R.id.bss_right_gridview);
         _bssPayButton = findViewById(R.id.bss_pay_button);
         _bssSeatId = findViewById(R.id.seat_id_text);
+        _bssFromText = findViewById(R.id.bss_from_region_text);
+        _bssToText = findViewById(R.id.bss_to_region_text);
+        _bssBusName = findViewById(R.id.bss_bus_name);
+        _bssBusJourneyTime = findViewById(R.id.bss_bus_journey_time);
+        _bssBusDeparture = findViewById(R.id.bss_bus_depart_time);
+        _bssBusTicketPrice = findViewById(R.id.bss_bus_ticket_price);
+        _bssBusArrivalTime = findViewById(R.id.bss_bus_arrival_time);
+
+        queryData();
 
         enablingGridviewData(_bssLeftGridview, _bssRightGridview);
 
@@ -75,6 +92,23 @@ public class BusSeatSelectorActivity extends AppCompatActivity
         gridViewL.setAdapter(_seatAdapterL);
         _seatAdapterR = new SeatAdapter(_seatItemRight, RIGHT_GRID_ID);
         gridViewR.setAdapter(_seatAdapterR);
+
+    }
+
+    private void queryData()
+    {
+        ArrayList<String> _searchingResults = getIntent().getStringArrayListExtra("searching_data");
+        ArrayList<String> _cardDetailsHolder = getIntent().getStringArrayListExtra("bus_card");
+
+
+        _bssBusName.setText(_cardDetailsHolder.get(0));
+        _bssBusJourneyTime.setText(_cardDetailsHolder.get(1));
+        _bssBusDeparture.setText(_cardDetailsHolder.get(2));
+        _bssBusArrivalTime.setText(_cardDetailsHolder.get(3));
+        _bssBusTicketPrice.setText(_cardDetailsHolder.get(4));
+
+        _bssFromText.setText(_searchingResults.get(0));
+        _bssToText.setText(_searchingResults.get(1));
 
     }
 

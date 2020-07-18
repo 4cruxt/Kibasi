@@ -74,7 +74,7 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:src="@drawable/from_24dp"
+                app:srcCompat="@drawable/from_24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -136,7 +136,7 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:src="@drawable/to_24dp"
+                app:srcCompat="@drawable/to_24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -193,7 +193,7 @@
             android:adjustViewBounds="false"
             android:cropToPadding="false"
             android:scaleType="centerCrop"
-            android:src="@drawable/swap_vert_24dp"
+            app:srcCompat="@drawable/swap_vert_24dp"
             android:tint="@color/colorPrimary" />
     </androidx.cardview.widget.CardView>
 
@@ -222,7 +222,7 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:src="@drawable/date_range_24dp"
+                app:srcCompat="@drawable/date_range_24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
