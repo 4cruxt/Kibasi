@@ -116,6 +116,7 @@ public class TicketPaymentActivity extends AppCompatActivity
 
                 Intent _mainIntent = new Intent(TicketPaymentActivity.this, MainActivity.class);
                 _mainIntent.putExtra("Fragment_id", "" + TICKET_FRAGMENT_ID);
+                MainActivity.self_intent.finish();
                 startActivity(_mainIntent);
                 finish();
 

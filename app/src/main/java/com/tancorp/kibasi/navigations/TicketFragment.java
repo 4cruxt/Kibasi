@@ -1,8 +1,6 @@
 package com.tancorp.kibasi.navigations;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +20,12 @@ public class TicketFragment extends Fragment
 {
     public static final int TICKET_FRAGMENT_ID = 1;
 
-    private Ticket[] _ticketItem;
+    private Ticket[] _paidTicketItem;
+    private Ticket[] _unpaidTicketItem;
     private RecyclerView _ticketRecyclerview;
-    private TicketAdapter _ticketAdapter;
+    private RecyclerView _unpaidTicketRecyclerview;
+    private TicketAdapter _unpaidTicketAdapter;
+    private TicketAdapter _paidTicketAdapter;
 
     public TicketFragment()
     {
@@ -35,31 +36,45 @@ public class TicketFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        //Create ContextThemeWrapper from the original Activity Context with the custom theme
-        final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.TicketTheme);
-        //Clone the inflater using the ContextThemeWrapper
-        LayoutInflater _localInflater = inflater.cloneInContext(contextThemeWrapper);
-        // Inflate the layout for this fragment
-        View _view = _localInflater.inflate(R.layout.fragment_ticket, container, false);
-        _ticketRecyclerview = _view.findViewById(R.id.ticket_recyclerview);
 
-        initRecyclerview();
+        View _view = inflater.inflate(R.layout.fragment_ticket, container, false);
+        _ticketRecyclerview = _view.findViewById(R.id.ticket_recyclerview);
+        _unpaidTicketRecyclerview = _view.findViewById(R.id.unpaid_ticket_recyclerview);
+
+        enableRecyclerViewData(_unpaidTicketRecyclerview, _ticketRecyclerview);
 
         return _view;
     }
 
-    private void initRecyclerview()
+    private void enableRecyclerViewData(RecyclerView unpaidTicketRecyclerview, RecyclerView paidTicketRecyclerview)
+    {
+        initRecyclerview(unpaidTicketRecyclerview, paidTicketRecyclerview);
+
+    }
+
+    private void initRecyclerview(RecyclerView unpaidTicketRecyclerview, RecyclerView paidTicketRecyclerview)
     {
         ticketDataList();
-        _ticketAdapter = new TicketAdapter(_ticketItem);
-        _ticketRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
-        _ticketRecyclerview.setAdapter(_ticketAdapter);
-        _ticketAdapter.notifyDataSetChanged();
+
+        //unpaid ticket adapter initialization
+        _unpaidTicketAdapter = new TicketAdapter(_unpaidTicketItem, false);
+        unpaidTicketRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+        unpaidTicketRecyclerview.setAdapter(_unpaidTicketAdapter);
+        _unpaidTicketAdapter.notifyDataSetChanged();
+
+        //paid tickeet adapter initialization
+        _paidTicketAdapter = new TicketAdapter(_paidTicketItem, true);
+        paidTicketRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+        paidTicketRecyclerview.setAdapter(_paidTicketAdapter);
+        _paidTicketAdapter.notifyDataSetChanged();
 
     }
 
     private void ticketDataList()
     {
-        _ticketItem = new Ticket[]{new Ticket(0, "Shabiby Service", "7/7/2020"), new Ticket(0, "Expo Service", "8/5/2020"), new Ticket(0, "Star Bus", "2/2/2019"),};
+        _unpaidTicketItem = new Ticket[]{new Ticket(R.drawable.onboard3, R.drawable.ic_unpaid_dot_24dp, "Shabiby Bus Service", "BCZ 2901", "L8", "17/8/2020"), new Ticket(R.drawable.onboard3, R.drawable.ic_unpaid_dot_24dp, "Shabiby Bus Service", "BCZ 2901", "L8", "17/8/2020"),
+
+        };
+        _paidTicketItem = new Ticket[]{new Ticket(R.drawable.onboard3, R.drawable.ic_paid_dot_24dp, "Shabiby Bus Service", "BCZ 2901", "L8", "17/8/2020"), new Ticket(R.drawable.onboard3, R.drawable.ic_paid_dot_24dp, "Shabiby Bus Service", "BCZ 2901", "L8", "17/8/2020"), new Ticket(R.drawable.onboard3, R.drawable.ic_paid_dot_24dp, "Shabiby Bus Service", "BCZ 2901", "L8", "17/8/2020"), new Ticket(R.drawable.onboard3, R.drawable.ic_paid_dot_24dp, "Shabiby Bus Service", "BCZ 2901", "L8", "17/8/2020"), new Ticket(R.drawable.onboard3, R.drawable.ic_paid_dot_24dp, "Shabiby Bus Service", "BCZ 2901", "L8", "17/8/2020"), new Ticket(R.drawable.onboard3, R.drawable.ic_paid_dot_24dp, "Shabiby Bus Service", "BCZ 2901", "L8", "17/8/2020"), new Ticket(R.drawable.onboard3, R.drawable.ic_paid_dot_24dp, "Shabiby Bus Service", "BCZ 2901", "L8", "17/8/2020"), new Ticket(R.drawable.onboard3, R.drawable.ic_paid_dot_24dp, "Shabiby Bus Service", "BCZ 2901", "L8", "17/8/2020"), new Ticket(R.drawable.onboard3, R.drawable.ic_paid_dot_24dp, "Shabiby Bus Service", "BCZ 2901", "L8", "17/8/2020"), new Ticket(R.drawable.onboard3, R.drawable.ic_paid_dot_24dp, "Shabiby Bus Service", "BCZ 2901", "L8", "17/8/2020"),};
     }
 }

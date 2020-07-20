@@ -1,5 +1,7 @@
 package com.tancorp.kibasi;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -20,6 +22,9 @@ import static com.tancorp.kibasi.navigations.TicketFragment.TICKET_FRAGMENT_ID;
 
 public class MainActivity extends AppCompatActivity
 {
+
+    @SuppressLint("StaticFieldLeak")
+    public static Activity self_intent;
 
     private ActionBar _toolbar;
     private Fragment _fragment;
@@ -57,6 +62,7 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        self_intent = this;
 
         _toolbar = getSupportActionBar();
 
