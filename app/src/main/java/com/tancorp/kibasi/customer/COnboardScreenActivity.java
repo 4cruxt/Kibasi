@@ -1,4 +1,4 @@
-package com.tancorp.kibasi;
+package com.tancorp.kibasi.customer;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -12,10 +12,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.tancorp.kibasi.adapters.SliderAdapter;
+import com.tancorp.kibasi.R;
+import com.tancorp.kibasi.customer.adapters.SliderAdapter;
 
 @SuppressWarnings("SpellCheckingInspection")
-public class OnboardScreenActivity extends AppCompatActivity
+public class COnboardScreenActivity extends AppCompatActivity
 {
 
     private ViewPager _onboardViewPager;
@@ -176,7 +177,7 @@ public class OnboardScreenActivity extends AppCompatActivity
 
     private void openMainIntent()
     {
-        Intent mainIntent = new Intent(OnboardScreenActivity.this, MainActivity.class);
+        Intent mainIntent = new Intent(COnboardScreenActivity.this, CMainActivity.class);
         startActivity(mainIntent);
         finish();
     }

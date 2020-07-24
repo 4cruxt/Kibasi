@@ -1,4 +1,4 @@
-package com.tancorp.kibasi.adapters;
+package com.tancorp.kibasi.customer.adapters;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -11,10 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.tancorp.kibasi.BookedTicketActivity;
 import com.tancorp.kibasi.R;
-import com.tancorp.kibasi.TicketPaymentActivity;
-import com.tancorp.kibasi.models.Ticket;
+import com.tancorp.kibasi.customer.CBookedTicketActivity;
+import com.tancorp.kibasi.customer.CTicketPaymentActivity;
+import com.tancorp.kibasi.customer.models.Ticket;
 
 
 public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder>
@@ -55,13 +55,13 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
                 //todo: Implement clicks functionality on a paid ticket.
                 if(_isTicketPaid)
                 {
-                    Intent _ticketIntent = new Intent(v.getContext(), BookedTicketActivity.class);
+                    Intent _ticketIntent = new Intent(v.getContext(), CBookedTicketActivity.class);
                     v.getContext().startActivity(_ticketIntent);
                 }
                 else
                 {
                     //todo: Implement clicks functionality on an upaid ticket.
-                    Intent _paymentIntent = new Intent(v.getContext(), TicketPaymentActivity.class);
+                    Intent _paymentIntent = new Intent(v.getContext(), CTicketPaymentActivity.class);
                     v.getContext().startActivity(_paymentIntent);
                 }
 

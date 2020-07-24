@@ -10,13 +10,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".managers.MOnboardScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/OnboardTheme" />
+        <activity
+            android:name=".customer.authentications.CAuthActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TicketTheme" />
+        <activity
+            android:name=".BoardActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TicketTheme" />
+        <activity
+            android:name=".managers.authentications.MAuthActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TicketTheme" />
 
         <activity
-            android:name=".OnboardScreenActivity"
+            android:name=".managers.MMainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".customer.COnboardScreenActivity"
             android:screenOrientation="portrait"
             android:theme="@style/OnboardTheme"
             tools:ignore="LockedOrientationActivity" />
-
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
@@ -28,24 +46,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".MainActivity"
+            android:name=".customer.CMainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-
         <activity
-            android:name=".BusSeatSelectorActivity"
+            android:name=".customer.CBusSeatSelectorActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-
         <activity
-            android:name=".BookedTicketActivity"
+            android:name=".customer.CBookedTicketActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-
         <activity
-            android:name=".TicketPaymentActivity"
+            android:name=".customer.CTicketPaymentActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TicketTheme"
             tools:ignore="LockedOrientationActivity" />
@@ -53,7 +67,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
 
 </manifest>

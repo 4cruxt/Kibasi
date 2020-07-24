@@ -12,7 +12,7 @@ public class SplashActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        Intent mainIntent = new Intent(this, OnboardScreenActivity.class);
+        Intent mainIntent = new Intent(this, BoardActivity.class);
         startActivity(mainIntent);
         finish();
 

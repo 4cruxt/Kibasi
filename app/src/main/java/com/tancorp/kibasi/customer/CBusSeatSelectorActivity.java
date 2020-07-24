@@ -1,4 +1,4 @@
-package com.tancorp.kibasi;
+package com.tancorp.kibasi.customer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +12,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.tancorp.kibasi.adapters.SeatAdapter;
-import com.tancorp.kibasi.models.Seat;
+import com.tancorp.kibasi.R;
+import com.tancorp.kibasi.customer.adapters.SeatAdapter;
+import com.tancorp.kibasi.customer.models.Seat;
 
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 @SuppressWarnings("ConstantConditions")
-public class BusSeatSelectorActivity extends AppCompatActivity
+public class CBusSeatSelectorActivity extends AppCompatActivity
 {
 
     public static final String LEFT_GRID_ID = "L";
@@ -136,7 +137,7 @@ public class BusSeatSelectorActivity extends AppCompatActivity
                 if(_seatAdapter._selectedSeatsPosition.contains(gridId + position))
                 {
                     _seatAdapter._selectedSeatsPosition.remove(gridId + position);
-                    ((GridItemView) view).display(false);
+                    ((CGridItemView) view).display(false);
 
                     _selectedSeats.remove(gridId + _itemPosition);
 
@@ -147,7 +148,7 @@ public class BusSeatSelectorActivity extends AppCompatActivity
                 else
                 {
                     _seatAdapter._selectedSeatsPosition.add(gridId + position);
-                    ((GridItemView) view).display(true);
+                    ((CGridItemView) view).display(true);
 
                     _selectedSeats.add(gridId + _itemPosition);
 
@@ -180,7 +181,7 @@ public class BusSeatSelectorActivity extends AppCompatActivity
                 @Override
                 public void onClick(View v)
                 {
-                    Intent _ticketPayment = new Intent(BusSeatSelectorActivity.this, TicketPaymentActivity.class);
+                    Intent _ticketPayment = new Intent(CBusSeatSelectorActivity.this, CTicketPaymentActivity.class);
                     startActivity(_ticketPayment);
                     finish();
                 }

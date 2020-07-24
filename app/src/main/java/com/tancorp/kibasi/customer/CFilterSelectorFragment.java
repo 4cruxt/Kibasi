@@ -1,4 +1,4 @@
-package com.tancorp.kibasi;
+package com.tancorp.kibasi.customer;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,14 +7,16 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
+import com.tancorp.kibasi.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FilterSelectorFragment extends Fragment
+public class CFilterSelectorFragment extends Fragment
 {
 
-    public FilterSelectorFragment()
+    public CFilterSelectorFragment()
     {
         // Required empty public constructor
     }

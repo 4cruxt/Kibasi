@@ -1,4 +1,4 @@
-package com.tancorp.kibasi.adapters;
+package com.tancorp.kibasi.customer.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,9 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.tancorp.kibasi.BusSeatSelectorActivity;
 import com.tancorp.kibasi.R;
-import com.tancorp.kibasi.models.Bus;
+import com.tancorp.kibasi.customer.CBusSeatSelectorActivity;
+import com.tancorp.kibasi.customer.models.Bus;
 
 import java.util.ArrayList;
 
@@ -65,7 +65,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ViewHolder>
             @Override
             public void onClick(View v)
             {
-                Intent _seatSelectorIntent = new Intent(v.getContext(), BusSeatSelectorActivity.class);
+                Intent _seatSelectorIntent = new Intent(v.getContext(), CBusSeatSelectorActivity.class);
                 _seatSelectorIntent.putStringArrayListExtra("searching_data", _queryData);
                 _seatSelectorIntent.putStringArrayListExtra("bus_card", _busDataHolder);
                 v.getContext().startActivity(_seatSelectorIntent);

@@ -1,4 +1,4 @@
-package com.tancorp.kibasi;
+package com.tancorp.kibasi.customer;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -12,15 +12,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.tancorp.kibasi.navigations.ExploreFragment;
-import com.tancorp.kibasi.navigations.PassengerFragment;
-import com.tancorp.kibasi.navigations.TicketFragment;
+import com.tancorp.kibasi.R;
+import com.tancorp.kibasi.customer.navigations.CExploreFragment;
+import com.tancorp.kibasi.customer.navigations.CPassengerFragment;
+import com.tancorp.kibasi.customer.navigations.CTicketFragment;
 
-import static com.tancorp.kibasi.navigations.ExploreFragment.EXPLORE_FRAGMENT_ID;
-import static com.tancorp.kibasi.navigations.PassengerFragment.PASSENGER_FRAGMENT_ID;
-import static com.tancorp.kibasi.navigations.TicketFragment.TICKET_FRAGMENT_ID;
+import static com.tancorp.kibasi.customer.navigations.CExploreFragment.EXPLORE_FRAGMENT_ID;
+import static com.tancorp.kibasi.customer.navigations.CPassengerFragment.PASSENGER_FRAGMENT_ID;
+import static com.tancorp.kibasi.customer.navigations.CTicketFragment.TICKET_FRAGMENT_ID;
 
-public class MainActivity extends AppCompatActivity
+public class CMainActivity extends AppCompatActivity
 {
 
     @SuppressLint("StaticFieldLeak")
@@ -39,15 +40,15 @@ public class MainActivity extends AppCompatActivity
             switch(item.getItemId())
             {
                 case R.id.navigation_explore:
-                    _fragment = new ExploreFragment();
+                    _fragment = new CExploreFragment();
                     loadFragment(_fragment);
                     return true;
                 case R.id.navigation_ticket:
-                    _fragment = new TicketFragment();
+                    _fragment = new CTicketFragment();
                     loadFragment(_fragment);
                     return true;
                 case R.id.navigation_passenger:
-                    _fragment = new PassengerFragment();
+                    _fragment = new CPassengerFragment();
                     loadFragment(_fragment);
                     return true;
             }
@@ -82,19 +83,19 @@ public class MainActivity extends AppCompatActivity
         {
             if(_fragment_id.contains("" + EXPLORE_FRAGMENT_ID))
             {
-                _fragment = new ExploreFragment();
+                _fragment = new CExploreFragment();
                 loadFragment(_fragment);
                 _navigationView.getMenu().getItem(EXPLORE_FRAGMENT_ID).setChecked(true);
             }
             else if(_fragment_id.contains("" + TICKET_FRAGMENT_ID))
             {
-                _fragment = new TicketFragment();
+                _fragment = new CTicketFragment();
                 loadFragment(_fragment);
                 _navigationView.getMenu().getItem(TICKET_FRAGMENT_ID).setChecked(true);
             }
             else if(_fragment_id.contains("" + PASSENGER_FRAGMENT_ID))
             {
-                _fragment = new PassengerFragment();
+                _fragment = new CPassengerFragment();
                 loadFragment(_fragment);
                 _navigationView.getMenu().getItem(PASSENGER_FRAGMENT_ID).setChecked(true);
             }
@@ -102,7 +103,7 @@ public class MainActivity extends AppCompatActivity
         }
         else
         {
-            _fragment = new ExploreFragment();
+            _fragment = new CExploreFragment();
             loadFragment(_fragment);
         }
     }

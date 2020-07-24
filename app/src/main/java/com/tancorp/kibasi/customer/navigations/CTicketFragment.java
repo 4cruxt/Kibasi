@@ -1,4 +1,4 @@
-package com.tancorp.kibasi.navigations;
+package com.tancorp.kibasi.customer.navigations;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,13 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.tancorp.kibasi.R;
-import com.tancorp.kibasi.adapters.TicketAdapter;
-import com.tancorp.kibasi.models.Ticket;
+import com.tancorp.kibasi.customer.adapters.TicketAdapter;
+import com.tancorp.kibasi.customer.models.Ticket;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TicketFragment extends Fragment
+public class CTicketFragment extends Fragment
 {
     public static final int TICKET_FRAGMENT_ID = 1;
 
@@ -27,7 +27,7 @@ public class TicketFragment extends Fragment
     private TicketAdapter _unpaidTicketAdapter;
     private TicketAdapter _paidTicketAdapter;
 
-    public TicketFragment()
+    public CTicketFragment()
     {
         // Required empty public constructor
     }

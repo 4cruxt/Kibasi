@@ -1,4 +1,4 @@
-package com.tancorp.kibasi.navigations;
+package com.tancorp.kibasi.customer.navigations;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -20,8 +20,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.isapanah.awesomespinner.AwesomeSpinner;
-import com.tancorp.kibasi.BusSelectorFragment;
 import com.tancorp.kibasi.R;
+import com.tancorp.kibasi.customer.CBusSelectorFragment;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ExploreFragment extends Fragment
+public class CExploreFragment extends Fragment
 {
     public static final int EXPLORE_FRAGMENT_ID = 0;
 
@@ -55,7 +55,7 @@ public class ExploreFragment extends Fragment
     };
 
 
-    public ExploreFragment()
+    public CExploreFragment()
     {
         // Required empty public constructor
     }
@@ -102,7 +102,7 @@ public class ExploreFragment extends Fragment
                     Bundle _searchingData = new Bundle();
                     _searchingData.putStringArrayList("searching_results", _tempoStorage);
 
-                    Fragment _busSelectorFragment = new BusSelectorFragment();
+                    Fragment _busSelectorFragment = new CBusSelectorFragment();
                     loadFragment(_busSelectorFragment, _searchingData);
                 }
 

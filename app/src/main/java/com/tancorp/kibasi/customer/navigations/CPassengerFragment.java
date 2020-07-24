@@ -1,4 +1,4 @@
-package com.tancorp.kibasi.navigations;
+package com.tancorp.kibasi.customer.navigations;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,11 +12,11 @@ import com.tancorp.kibasi.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PassengerFragment extends Fragment
+public class CPassengerFragment extends Fragment
 {
     public static final int PASSENGER_FRAGMENT_ID = 2;
 
-    public PassengerFragment()
+    public CPassengerFragment()
     {
         // Required empty public constructor
     }

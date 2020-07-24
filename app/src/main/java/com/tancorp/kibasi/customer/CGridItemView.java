@@ -1,4 +1,4 @@
-package com.tancorp.kibasi;
+package com.tancorp.kibasi.customer;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,12 +7,14 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class GridItemView extends ConstraintLayout
+import com.tancorp.kibasi.R;
+
+public class CGridItemView extends ConstraintLayout
 {
     private ImageView _seatIcon;
     private TextView _seatIdText;
 
-    public GridItemView(Context context)
+    public CGridItemView(Context context)
     {
         super(context);
         LayoutInflater.from(context).inflate(R.layout.seat_item, this);

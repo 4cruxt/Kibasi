@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackgroundWhite"
-    tools:context=".BusSeatSelectorActivity">
+    tools:context=".customer.CBusSeatSelectorActivity">
 
     <FrameLayout
         android:id="@+id/bss_layout_background"

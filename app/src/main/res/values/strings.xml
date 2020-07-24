@@ -6,5 +6,7 @@
     <string name="navigation_explore">Tafuta</string>
     <string name="navigation_ticket">Tiketi</string>
     <string name="navigation_passenger">Msafiri</string>
+    <string name="m_navigation_explore">Hakiki</string>
+    <string name="m_navigation_manager">Mmiliki</string>
 
 </resources>

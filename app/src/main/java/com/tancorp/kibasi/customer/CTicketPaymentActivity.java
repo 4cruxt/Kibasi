@@ -1,4 +1,4 @@
-package com.tancorp.kibasi;
+package com.tancorp.kibasi.customer;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -13,11 +13,13 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tancorp.kibasi.R;
+
 import java.util.Objects;
 
-import static com.tancorp.kibasi.navigations.TicketFragment.TICKET_FRAGMENT_ID;
+import static com.tancorp.kibasi.customer.navigations.CTicketFragment.TICKET_FRAGMENT_ID;
 
-public class TicketPaymentActivity extends AppCompatActivity
+public class CTicketPaymentActivity extends AppCompatActivity
 {
     private Button _payerActivatorButton;
     private EditText _travelerName;
@@ -83,7 +85,7 @@ public class TicketPaymentActivity extends AppCompatActivity
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void showDialogPopUp()
     {
-        final Dialog _paymentDialog = new Dialog(TicketPaymentActivity.this);
+        final Dialog _paymentDialog = new Dialog(CTicketPaymentActivity.this);
         _paymentDialog.setContentView(R.layout.payment_dialog);
         _paymentDialog.setCancelable(true);
         Objects.requireNonNull(_paymentDialog.getWindow()).setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -111,12 +113,12 @@ public class TicketPaymentActivity extends AppCompatActivity
                 String _payerNames = _payerName.getText().toString();
 
 
-                Toast.makeText(TicketPaymentActivity.this, "Msafiri: " + _travelerNames + "\n" + "Mlipaji: " + _payerNames, Toast.LENGTH_SHORT).show();
+                Toast.makeText(CTicketPaymentActivity.this, "Msafiri: " + _travelerNames + "\n" + "Mlipaji: " + _payerNames, Toast.LENGTH_SHORT).show();
                 _paymentDialog.dismiss();
 
-                Intent _mainIntent = new Intent(TicketPaymentActivity.this, MainActivity.class);
+                Intent _mainIntent = new Intent(CTicketPaymentActivity.this, CMainActivity.class);
                 _mainIntent.putExtra("Fragment_id", "" + TICKET_FRAGMENT_ID);
-                MainActivity.self_intent.finish();
+                CMainActivity.self_intent.finish();
                 startActivity(_mainIntent);
                 finish();
 

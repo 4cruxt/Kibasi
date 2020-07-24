@@ -1,12 +1,12 @@
-package com.tancorp.kibasi.adapters;
+package com.tancorp.kibasi.customer.adapters;
 
 import android.annotation.SuppressLint;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.tancorp.kibasi.GridItemView;
-import com.tancorp.kibasi.models.Seat;
+import com.tancorp.kibasi.customer.CGridItemView;
+import com.tancorp.kibasi.customer.models.Seat;
 
 import java.util.ArrayList;
 
@@ -48,16 +48,16 @@ public class SeatAdapter extends BaseAdapter
     public View getView(int position, View convertView, ViewGroup parent)
     {
 
-        GridItemView customView;
+        CGridItemView customView;
 
         if(convertView == null)
         {
-            customView = new GridItemView(parent.getContext());
+            customView = new CGridItemView(parent.getContext());
         }
         else
         {
 
-            customView = (GridItemView) convertView;
+            customView = (CGridItemView) convertView;
         }
 
         customView.display(_seats[position].getSeatIcon(), _seats[position].getSeatIdText(), _selectedSeatsPosition.contains(_gridId + position));

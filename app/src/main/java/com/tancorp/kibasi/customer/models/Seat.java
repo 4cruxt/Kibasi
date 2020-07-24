@@ -1,4 +1,4 @@
-package com.tancorp.kibasi.models;
+package com.tancorp.kibasi.customer.models;
 
 public class Seat
 {

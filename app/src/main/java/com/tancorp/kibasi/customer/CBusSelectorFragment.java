@@ -1,4 +1,4 @@
-package com.tancorp.kibasi;
+package com.tancorp.kibasi.customer;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,8 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.tancorp.kibasi.adapters.BusAdapter;
-import com.tancorp.kibasi.models.Bus;
+import com.tancorp.kibasi.R;
+import com.tancorp.kibasi.customer.adapters.BusAdapter;
+import com.tancorp.kibasi.customer.models.Bus;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BusSelectorFragment extends Fragment
+public class CBusSelectorFragment extends Fragment
 {
 
     private RecyclerView _busRecyclerview;
@@ -34,7 +35,7 @@ public class BusSelectorFragment extends Fragment
     private TextView _dateTravelText;
 
 
-    public BusSelectorFragment()
+    public CBusSelectorFragment()
     {
         // Required empty public constructor
     }
