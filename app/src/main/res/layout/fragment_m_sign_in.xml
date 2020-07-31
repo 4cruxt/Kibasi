@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/m_in_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    tools:context=".managers.authentications.MSignInFragment">
+
+    <ImageView
+        android:id="@+id/m_in_kibasi_logo"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:src="@drawable/kibasi_m_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <EditText
+        android:id="@+id/m_in_email_text"
+        android:layout_width="300dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/colorBackgroundGreen"
+        android:ems="10"
+        android:hint="Anwani"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorTransparentWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_in_kibasi_logo" />
+
+    <EditText
+        android:id="@+id/m_in_password_text"
+        android:layout_width="300dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorBackgroundGreen"
+        android:ems="10"
+        android:hint="Neno la siri"
+        android:inputType="textPassword"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorTransparentWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_in_email_text" />
+
+    <TextView
+        android:id="@+id/m_in_forgot_passwrd_button_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Umesahau neno la siri?"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="@+id/m_in_password_text"
+        app:layout_constraintTop_toBottomOf="@+id/m_in_password_text" />
+
+    <Button
+        android:id="@+id/m_in_submit_button"
+        android:layout_width="262dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorAccent"
+        android:text="ingia"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_in_forgot_passwrd_button_text" />
+
+    <TextView
+        android:id="@+id/m_in_register_button_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Huna akaunti? Jiunge!"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_in_submit_button" />
+
+    <ProgressBar
+        android:id="@+id/m_in_progressbar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_in_forgot_passwrd_button_text"
+        app:layout_constraintVertical_bias="0.52" />
+</androidx.constraintlayout.widget.ConstraintLayout>

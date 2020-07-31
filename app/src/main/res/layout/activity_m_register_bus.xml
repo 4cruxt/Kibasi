@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/m_register_bus_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundWhite"
+    tools:context=".managers.MRegisterBusActivity">
+
+    <FrameLayout
+        android:id="@+id/m_register_bus_background"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/m_register_bus_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/m_register_bus_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/m_register_bus_background"
+        app:srcCompat="@drawable/ic_bus_baseline_24" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/m_register_bus_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="10dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_register_bus_background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/m_r_b_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_bus_baseline_24" />
+
+            <ImageView
+                android:id="@+id/m_r_b_seat_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="@+id/m_r_b_icon"
+                app:layout_constraintTop_toBottomOf="@+id/m_r_b_icon"
+                app:srcCompat="@drawable/ic_seat_baseline_24" />
+
+            <ImageView
+                android:id="@+id/m_r_b_bus_number"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="@+id/m_r_b_seat_icon"
+                app:layout_constraintTop_toBottomOf="@+id/m_r_b_seat_icon"
+                app:srcCompat="@drawable/ic_number_24" />
+
+            <ImageView
+                android:id="@+id/m_r_b_from_region"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="@+id/m_r_b_bus_number"
+                app:layout_constraintTop_toBottomOf="@+id/m_r_b_bus_number"
+                app:srcCompat="@drawable/from_24dp" />
+
+            <ImageView
+                android:id="@+id/m_r_b_to_region"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="@+id/m_r_b_bus_number"
+                app:layout_constraintTop_toBottomOf="@+id/m_r_b_from_region"
+                app:srcCompat="@drawable/ic_traveler_24dp" />
+
+            <ImageView
+                android:id="@+id/m_r_b_payment_per_ticket_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="@+id/m_r_b_to_region"
+                app:layout_constraintTop_toBottomOf="@+id/m_r_b_to_region"
+                app:srcCompat="@drawable/ic_payment_24dp" />
+
+            <EditText
+                android:id="@+id/m_r_b_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorBackgroundGreen"
+                android:ems="10"
+                android:hint="Jina la basi"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:singleLine="true"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorTransparentWhite"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/m_r_b_icon"
+                app:layout_constraintStart_toEndOf="@+id/m_r_b_icon"
+                app:layout_constraintTop_toTopOf="@+id/m_r_b_icon"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/m_r_b_plate_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorBackgroundGreen"
+                android:ems="10"
+                android:hint="Plate namba ya basi"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorTransparentWhite"
+                app:layout_constraintBottom_toBottomOf="@+id/m_r_b_bus_number"
+                app:layout_constraintStart_toEndOf="@+id/m_r_b_bus_number"
+                app:layout_constraintTop_toTopOf="@+id/m_r_b_bus_number"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/m_r_b_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorBackgroundGreen"
+                android:ems="10"
+                android:hint="Kutoka mkoa"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorTransparentWhite"
+                app:layout_constraintBottom_toBottomOf="@+id/m_r_b_from_region"
+                app:layout_constraintStart_toEndOf="@+id/m_r_b_from_region"
+                app:layout_constraintTop_toTopOf="@+id/m_r_b_from_region"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/m_r_b_to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorBackgroundGreen"
+                android:ems="10"
+                android:hint="Kwenda mkoa"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorTransparentWhite"
+                app:layout_constraintBottom_toBottomOf="@+id/m_r_b_to_region"
+                app:layout_constraintStart_toEndOf="@+id/m_r_b_to_region"
+                app:layout_constraintTop_toTopOf="@+id/m_r_b_to_region"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/m_r_b_ticket_payment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorBackgroundGreen"
+                android:ems="10"
+                android:hint="Bei ya tiketi"
+                android:inputType="number"
+                android:padding="5dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorTransparentWhite"
+                app:layout_constraintBottom_toBottomOf="@+id/m_r_b_payment_per_ticket_icon"
+                app:layout_constraintStart_toEndOf="@+id/m_r_b_payment_per_ticket_icon"
+                app:layout_constraintTop_toTopOf="@+id/m_r_b_payment_per_ticket_icon"
+                app:layout_constraintVertical_bias="0.166" />
+
+            <EditText
+                android:id="@+id/m_r_b_seat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorBackgroundGreen"
+                android:ems="10"
+                android:hint="Jumla ya siti"
+                android:inputType="number"
+                android:padding="5dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorTransparentWhite"
+                app:layout_constraintBottom_toBottomOf="@+id/m_r_b_seat_icon"
+                app:layout_constraintStart_toEndOf="@+id/m_r_b_seat_icon"
+                app:layout_constraintTop_toTopOf="@+id/m_r_b_seat_icon"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/m_r_b_from_time"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/colorBackgroundGreen"
+                android:editable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="00:00"
+                android:inputType="time"
+                android:padding="5dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorTransparentWhite"
+                app:layout_constraintBottom_toBottomOf="@+id/m_r_b_from"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/m_r_b_from"
+                app:layout_constraintTop_toTopOf="@+id/m_r_b_from" />
+
+            <EditText
+                android:id="@+id/m_r_b_to_time"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/colorBackgroundGreen"
+                android:editable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="00:00"
+                android:inputType="time"
+                android:padding="5dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorTransparentWhite"
+                app:layout_constraintBottom_toBottomOf="@+id/m_r_b_to"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/m_r_b_to"
+                app:layout_constraintTop_toTopOf="@+id/m_r_b_to" />
+
+            <TextView
+                android:id="@+id/m_r_b_image_upload_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Ingiza picha:"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@+id/m_r_b_payment_per_ticket_icon"
+                app:layout_constraintTop_toBottomOf="@+id/m_r_b_payment_per_ticket_icon" />
+
+            <Button
+                android:id="@+id/m_register_bus_submit_button"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:background="@drawable/selected_seat"
+                android:text="thibitisha"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/m_r_b_card_photo"
+                app:layout_constraintTop_toTopOf="@+id/m_r_b_card_photo" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/m_r_b_card_photo"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:clipChildren="false"
+                app:cardCornerRadius="10dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/m_r_b_image_upload_title"
+                app:layout_constraintTop_toBottomOf="@+id/m_r_b_image_upload_title">
+
+                <ImageView
+                    android:id="@+id/m_r_b_photo_upload"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="false"
+                    android:cropToPadding="false"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/available_seat" />
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/m_r_b_delete_button"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/available_seat"
+                android:backgroundTint="@color/colorErrorSpinner"
+                android:drawableEnd="@drawable/ic_baseline_delete_24"
+                android:paddingStart="6dp"
+                android:paddingEnd="2dp"
+                android:text="Futa basi"
+                android:textColor="#FF0000"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@+id/m_register_bus_submit_button"
+                app:layout_constraintEnd_toEndOf="@+id/m_register_bus_submit_button"
+                app:layout_constraintStart_toStartOf="@+id/m_register_bus_submit_button" />
+
+            <ProgressBar
+                android:id="@+id/m_r_b_progress_bar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/m_r_b_card_photo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/m_r_b_card_photo"
+                app:layout_constraintTop_toTopOf="@+id/m_r_b_card_photo"
+                app:layout_constraintVertical_bias="0.62" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/m_ticket_pss_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".managers.navigations.MTicketFragment">
+
+    <FrameLayout
+        android:id="@+id/m_ticket_pss_background"
+        android:layout_width="0dp"
+        android:layout_height="190dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/m_ticket_pss_bus_card"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="5dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="@+id/m_ticket_pss_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/m_ticket_pss_bus_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/m_ticket_pss_bus_image_card"
+                android:layout_width="100dp"
+                android:layout_height="88dp"
+                app:cardBackgroundColor="@color/colorBackgroundGreen"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/m_ticket_pss_bus_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/onboard3" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/m_ticket_pss_bus_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="Shabiby bus service"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/m_ticket_pss_bus_image_card"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/m_ticket_pss_from_region"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="Arusha"
+                android:textColor="@color/colorTransparentWhite"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/m_ticket_pss_bus_image_card"
+                app:layout_constraintTop_toBottomOf="@+id/m_ticket_pss_bus_name" />
+
+            <ImageView
+                android:id="@+id/m_ticket_pss_h_swap_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/m_ticket_pss_from_region"
+                app:layout_constraintStart_toEndOf="@+id/m_ticket_pss_from_region"
+                app:layout_constraintTop_toTopOf="@+id/m_ticket_pss_from_region"
+                app:srcCompat="@drawable/swap_horiz_24dp" />
+
+            <TextView
+                android:id="@+id/m_ticket_pss_to_region"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="Dodoma"
+                android:textColor="@color/colorTransparentWhite"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/m_ticket_pss_from_region"
+                app:layout_constraintStart_toEndOf="@+id/m_ticket_pss_h_swap_icon"
+                app:layout_constraintTop_toTopOf="@+id/m_ticket_pss_from_region" />
+
+            <ImageView
+                android:id="@+id/m_ticket_pss_bus_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/m_ticket_pss_bus_name"
+                app:srcCompat="@drawable/ic_bus_baseline_24" />
+
+            <TextView
+                android:id="@+id/m_ticket_pss_bus_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JTXO 1233"
+                android:textColor="#009688"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/m_ticket_pss_bus_icon"
+                app:layout_constraintStart_toStartOf="@+id/m_ticket_pss_bus_icon"
+                app:layout_constraintTop_toBottomOf="@+id/m_ticket_pss_bus_icon" />
+
+            <TextView
+                android:id="@+id/m_ticket_pss_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="59000/="
+                android:textColor="#009688"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/m_ticket_pss_seat_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="Siti:"
+                android:textColor="@color/colorTransparentWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/m_ticket_pss_bus_image_card" />
+
+            <TextView
+                android:id="@+id/m_ticket_pss_seat_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="56"
+                android:textColor="#009688"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/m_ticket_pss_seat_title"
+                app:layout_constraintStart_toEndOf="@+id/m_ticket_pss_seat_title"
+                app:layout_constraintTop_toTopOf="@+id/m_ticket_pss_seat_title" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/m_ticket_pss_mid_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Mhakiki"
+        android:textColor="@color/colorTransparentWhite"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_ticket_pss_background" />
+
+    <TextView
+        android:id="@+id/m_ticket_pss_passenger_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:text="Msafiri"
+        android:textColor="@color/colorTransparentWhite"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_ticket_pss_mid_card" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/m_ticket_pss_mid_card"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="5dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_ticket_pss_mid_title">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/m_ticket_pss_mid_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackgroundWhite">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/m_ticket_pss_mid_photo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/onboard3"
+                app:civ_border_color="@color/colorBackgroundWhite"
+                app:civ_border_width="4dp"
+                app:civ_shadow="false"
+                app:civ_shadow_radius="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/m_ticket_pss_mid_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="Annastazia M. Mendez"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/m_ticket_pss_mid_photo"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/m_ticket_pss_mid_phone_number_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="8dp"
+                android:text="Simu:"
+                android:textColor="@color/colorTransparentWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/m_ticket_pss_mid_photo"
+                app:layout_constraintTop_toBottomOf="@+id/m_ticket_pss_mid_name" />
+
+            <TextView
+                android:id="@+id/m_ticket_pss_mid_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="0743809705"
+                android:textColor="#009688"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/m_ticket_pss_mid_phone_number_title"
+                app:layout_constraintStart_toEndOf="@+id/m_ticket_pss_mid_phone_number_title"
+                app:layout_constraintTop_toTopOf="@+id/m_ticket_pss_mid_phone_number_title" />
+
+            <TextView
+                android:id="@+id/m_ticket_pss_mid_ticket_number_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Tiketi:"
+                android:textColor="@color/colorTransparentWhite"
+                app:layout_constraintBottom_toBottomOf="@+id/m_ticket_pss_mid_phone_number_title"
+                app:layout_constraintStart_toEndOf="@+id/m_ticket_pss_mid_phone"
+                app:layout_constraintTop_toTopOf="@+id/m_ticket_pss_mid_phone_number_title" />
+
+            <TextView
+                android:id="@+id/m_ticket_pss_mid_ticket_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="54"
+                android:textColor="#009688"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/m_ticket_pss_mid_ticket_number_text"
+                app:layout_constraintStart_toEndOf="@+id/m_ticket_pss_mid_ticket_number_text"
+                app:layout_constraintTop_toTopOf="@+id/m_ticket_pss_mid_ticket_number_text" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/m_ticket_pss_recyclerview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m_ticket_pss_passenger_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

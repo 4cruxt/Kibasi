@@ -5,6 +5,11 @@ public class Seat
     private int _seatIcon;
     private String _seatIdText;
 
+    public Seat()
+    {
+
+    }
+
     public Seat(int seatIcon, String seatIdText)
     {
         _seatIcon = seatIcon;

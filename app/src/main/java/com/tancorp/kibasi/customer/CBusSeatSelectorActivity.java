@@ -34,8 +34,8 @@ public class CBusSeatSelectorActivity extends AppCompatActivity
     private Button _bssPayButton;
     private TextView _bssSeatId;
 
-    private Seat[] _seatItemLeft;
-    private Seat[] _seatItemRight;
+    private ArrayList<Seat> _seatItemLeft;
+    private ArrayList<Seat> _seatItemRight;
 
     private ArrayList<String> _selectedSeats; //todo: Make use of this selected variable since it holds position of selected seats.
 
@@ -48,6 +48,9 @@ public class CBusSeatSelectorActivity extends AppCompatActivity
     private TextView _bssBusDeparture;
     private TextView _bssBusTicketPrice;
     private TextView _bssBusArrivalTime;
+    private int _busSeatNumber;
+    private String _busPlateNumber;
+    private String _dateTravel;
 
 
     @Override
@@ -100,6 +103,7 @@ public class CBusSeatSelectorActivity extends AppCompatActivity
     {
         ArrayList<String> _searchingResults = getIntent().getStringArrayListExtra("searching_data");
         ArrayList<String> _cardDetailsHolder = getIntent().getStringArrayListExtra("bus_card");
+        _busSeatNumber = getIntent().getIntExtra("bus_seat_number", 0);
 
 
         _bssBusName.setText(_cardDetailsHolder.get(0));
@@ -108,18 +112,28 @@ public class CBusSeatSelectorActivity extends AppCompatActivity
         _bssBusArrivalTime.setText(_cardDetailsHolder.get(3));
         _bssBusTicketPrice.setText(_cardDetailsHolder.get(4));
 
+        _busPlateNumber = _cardDetailsHolder.get(5);
+        _dateTravel = _searchingResults.get(2);
+
         _bssFromText.setText(_searchingResults.get(0));
         _bssToText.setText(_searchingResults.get(1));
+
 
     }
 
     private void dataList()
     {
-        _seatItemLeft = new Seat[]{new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""),
+        _seatItemLeft = new ArrayList<>();
+        _seatItemRight = new ArrayList<>();
 
-        };
+        Log.i("BUS SEAT NUMBER", String.valueOf(_busSeatNumber));
 
-        _seatItemRight = new Seat[]{new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""), new Seat(R.drawable.seat_selector, ""),};
+        for(int i = 0; i < _busSeatNumber / 2; i++)
+        {
+            _seatItemRight.add(new Seat(R.drawable.seat_selector, ""));
+            _seatItemLeft.add(new Seat(R.drawable.seat_selector, ""));
+        }
+
 
     }
 
@@ -132,7 +146,6 @@ public class CBusSeatSelectorActivity extends AppCompatActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
                 int _itemPosition = position + 1;
-                //todo: Do something when a seat icon is pressed.
 
                 if(_seatAdapter._selectedSeatsPosition.contains(gridId + position))
                 {
@@ -141,7 +154,7 @@ public class CBusSeatSelectorActivity extends AppCompatActivity
 
                     _selectedSeats.remove(gridId + _itemPosition);
 
-                    _seatAdapter._seats[position].setSeatIdText("");
+                    _seatAdapter._seats.get(position).setSeatIdText("");
 
 
                 }
@@ -152,15 +165,13 @@ public class CBusSeatSelectorActivity extends AppCompatActivity
 
                     _selectedSeats.add(gridId + _itemPosition);
 
-                    _seatAdapter._seats[position].setSeatIdText(gridId + _itemPosition);
+                    _seatAdapter._seats.get(position).setSeatIdText(gridId + _itemPosition);
 
                 }
 
                 _seatAdapter.notifyDataSetChanged();
                 enablePayButton();
 
-                Log.i("SELECTED SEATS", _selectedSeats.toString());
-                Log.i("SEATS IN ADAPTER", _seatAdapter._selectedSeatsPosition.toString());
 
             }
         });
@@ -169,12 +180,30 @@ public class CBusSeatSelectorActivity extends AppCompatActivity
     private void enablePayButton()
     {
         int _ticket = _selectedSeats.size();
+
         String _ticketText = "LIPA ";
+
         if(_ticket != 0)
         {
             String _ticketNumber = _ticketText + _ticket;
+
             _bssPayButton.setVisibility(View.VISIBLE);
             _bssPayButton.setText(_ticketNumber);
+
+            //price format
+            int _price = Integer.parseInt(_bssBusTicketPrice.getText().toString().replace("Tshs.", "").replace(",", "").replace("/=", "").trim());
+
+            int _total = _price * _selectedSeats.size();
+            String _totalPrice = "Tshs." + _total;
+
+            final ArrayList<String> _paymentInfo = new ArrayList<>();
+
+            _paymentInfo.add(_bssBusName.getText().toString());
+            _paymentInfo.add(_busPlateNumber);
+            _paymentInfo.add(String.valueOf(_price));
+            _paymentInfo.add(_totalPrice);
+            _paymentInfo.add(_dateTravel);
+            //price format
 
             _bssPayButton.setOnClickListener(new View.OnClickListener()
             {
@@ -182,6 +211,9 @@ public class CBusSeatSelectorActivity extends AppCompatActivity
                 public void onClick(View v)
                 {
                     Intent _ticketPayment = new Intent(CBusSeatSelectorActivity.this, CTicketPaymentActivity.class);
+                    _ticketPayment.putStringArrayListExtra("selected_seats", _selectedSeats);
+                    _ticketPayment.putStringArrayListExtra("payment_info", _paymentInfo);
+
                     startActivity(_ticketPayment);
                     finish();
                 }

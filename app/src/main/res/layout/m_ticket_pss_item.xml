@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/m_ticket_item_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/m_ticket_card"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="5dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/m_ticket_card_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/m_ticket_passenger_photo"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/onboard3"
+                app:civ_border_color="@color/colorBackgroundWhite"
+                app:civ_border_width="4dp"
+                app:civ_shadow="false"
+                app:civ_shadow_radius="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/m_ticket_passenger_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="James Kajida John
+"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/m_ticket_passenger_photo"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/m_ticket_confirm_number_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="Namba ya uhakiki:"
+                android:textColor="@color/colorTransparentWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/m_ticket_passenger_photo" />
+
+            <TextView
+                android:id="@+id/m_ticket_confirm_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="12ue91o8e9"
+                android:textColor="#009688"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/m_ticket_confirm_number_title"
+                app:layout_constraintStart_toEndOf="@+id/m_ticket_confirm_number_title"
+                app:layout_constraintTop_toTopOf="@+id/m_ticket_confirm_number_title" />
+
+            <ImageView
+                android:id="@+id/m_ticket_seat_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/m_ticket_passenger_name"
+                app:srcCompat="@drawable/ic_seat_baseline_24" />
+
+            <TextView
+                android:id="@+id/m_ticket_passenger_seat_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R2"
+                android:textColor="#009688"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/m_ticket_seat_icon"
+                app:layout_constraintStart_toStartOf="@+id/m_ticket_seat_icon"
+                app:layout_constraintTop_toBottomOf="@+id/m_ticket_seat_icon" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

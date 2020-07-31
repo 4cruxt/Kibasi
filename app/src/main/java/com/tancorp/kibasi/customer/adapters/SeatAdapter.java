@@ -14,11 +14,11 @@ import java.util.ArrayList;
 
 public class SeatAdapter extends BaseAdapter
 {
-    public Seat[] _seats;
+    public ArrayList<Seat> _seats;
     public ArrayList<String> _selectedSeatsPosition;
     private String _gridId;
 
-    public SeatAdapter(Seat[] seats, String gridViewId)
+    public SeatAdapter(ArrayList<Seat> seats, String gridViewId)
     {
         _seats = seats;
         _gridId = gridViewId;
@@ -28,13 +28,13 @@ public class SeatAdapter extends BaseAdapter
     @Override
     public int getCount()
     {
-        return _seats.length;
+        return _seats.size();
     }
 
     @Override
     public Object getItem(int position)
     {
-        return _seats[position];
+        return _seats.get(position);
     }
 
     @Override
@@ -60,7 +60,7 @@ public class SeatAdapter extends BaseAdapter
             customView = (CGridItemView) convertView;
         }
 
-        customView.display(_seats[position].getSeatIcon(), _seats[position].getSeatIdText(), _selectedSeatsPosition.contains(_gridId + position));
+        customView.display(_seats.get(position).getSeatIcon(), _seats.get(position).getSeatIdText(), _selectedSeatsPosition.contains(_gridId + position));
 
         return customView;
     }

@@ -8,8 +8,15 @@ public class Bus
     private String _busDepartTime;
     private String _busArrivalTime;
     private int _busImage;
+    private int _busSeatNumber;
+    private String _busPlateNumber;
 
-    public Bus(String busName, String busJourneyTime, String busTicket, String busDepartTime, String busArrivalTime, int busImage)
+    public Bus()
+    {
+
+    }
+
+    public Bus(String busName, String busJourneyTime, String busTicket, String busDepartTime, String busArrivalTime, String busPlateNumber, int busImage, int busSeatNumber)
     {
         _busName = busName;
         _busJourneyTime = busJourneyTime;
@@ -17,6 +24,28 @@ public class Bus
         _busDepartTime = busDepartTime;
         _busArrivalTime = busArrivalTime;
         _busImage = busImage;
+        _busSeatNumber = busSeatNumber;
+        _busPlateNumber = busPlateNumber;
+    }
+
+    public String getBusPlateNumber()
+    {
+        return _busPlateNumber;
+    }
+
+    public void setBusPlateNumber(String busPlateNumber)
+    {
+        _busPlateNumber = busPlateNumber;
+    }
+
+    public int getBusSeatNumber()
+    {
+        return _busSeatNumber;
+    }
+
+    public void setBusSeatNumber(int busSeatNumber)
+    {
+        _busSeatNumber = busSeatNumber;
     }
 
     public String getBusDepartTime()

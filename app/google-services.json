@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "693139256553",
+    "firebase_url": "https://kibasi.firebaseio.com",
+    "project_id": "kibasi",
+    "storage_bucket": "kibasi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693139256553:android:045ffc70690e1bc5016c78",
+        "android_client_info": {
+          "package_name": "com.tancorp.kibasi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693139256553-kto4cekru7n2e3hn0e843o42nc5alcvs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApyhhiMMdkp-X1Ozy0C8R7BSqCJfVSQaI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693139256553-kto4cekru7n2e3hn0e843o42nc5alcvs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

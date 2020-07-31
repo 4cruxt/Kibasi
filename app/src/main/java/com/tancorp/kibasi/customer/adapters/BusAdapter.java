@@ -20,11 +20,11 @@ import java.util.ArrayList;
 
 public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ViewHolder>
 {
-    private Bus[] _busListData;
+    private ArrayList<Bus> _busListData;
     private Context _context;
     private ArrayList<String> _queryData;
 
-    public BusAdapter(Context context, Bus[] busListData, ArrayList<String> list)
+    public BusAdapter(Context context, ArrayList<Bus> busListData, ArrayList<String> list)
     {
         this._context = context;
         this._busListData = busListData;
@@ -46,19 +46,22 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ViewHolder>
     {
         //todo: remember to add bus image here.
 //        holder._busImage.setImageResource();
-        holder._busName.setText(_busListData[position].getBusName());
-        holder._busJourneyTimeText.setText(_busListData[position].getBusJourneyTime());
-        holder._busTicketPrice.setText(_busListData[position].getBusTicket());
-        holder._busArrivalTime.setText(_busListData[position].getBusArrivalTime());
-        holder._busDepartTime.setText(_busListData[position].getBusDepartTime());
+        holder._busName.setText(_busListData.get(position).getBusName());
+        holder._busJourneyTimeText.setText(_busListData.get(position).getBusJourneyTime());
+        holder._busTicketPrice.setText(_busListData.get(position).getBusTicket());
+        holder._busArrivalTime.setText(_busListData.get(position).getBusArrivalTime());
+        holder._busDepartTime.setText(_busListData.get(position).getBusDepartTime());
 
         //bus passed data
         final ArrayList<String> _busDataHolder = new ArrayList<>();
-        _busDataHolder.add(_busListData[position].getBusName());
-        _busDataHolder.add(_busListData[position].getBusJourneyTime());
-        _busDataHolder.add(_busListData[position].getBusDepartTime());
-        _busDataHolder.add(_busListData[position].getBusArrivalTime());
-        _busDataHolder.add(_busListData[position].getBusTicket());
+        _busDataHolder.add(_busListData.get(position).getBusName());
+        _busDataHolder.add(_busListData.get(position).getBusJourneyTime());
+        _busDataHolder.add(_busListData.get(position).getBusDepartTime());
+        _busDataHolder.add(_busListData.get(position).getBusArrivalTime());
+        _busDataHolder.add(_busListData.get(position).getBusTicket());
+        _busDataHolder.add(_busListData.get(position).getBusPlateNumber());
+
+        final int _busSeatNumber = _busListData.get(position).getBusSeatNumber();
 
         holder._layoutContainer.setOnClickListener(new View.OnClickListener()
         {
@@ -68,6 +71,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ViewHolder>
                 Intent _seatSelectorIntent = new Intent(v.getContext(), CBusSeatSelectorActivity.class);
                 _seatSelectorIntent.putStringArrayListExtra("searching_data", _queryData);
                 _seatSelectorIntent.putStringArrayListExtra("bus_card", _busDataHolder);
+                _seatSelectorIntent.putExtra("bus_seat_number", _busSeatNumber);
                 v.getContext().startActivity(_seatSelectorIntent);
             }
         });
@@ -77,7 +81,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ViewHolder>
     @Override
     public int getItemCount()
     {
-        return _busListData.length;
+        return _busListData.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder

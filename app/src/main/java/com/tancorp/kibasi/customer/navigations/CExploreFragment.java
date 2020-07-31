@@ -14,11 +14,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.isapanah.awesomespinner.AwesomeSpinner;
 import com.tancorp.kibasi.R;
 import com.tancorp.kibasi.customer.CBusSelectorFragment;
@@ -43,6 +46,7 @@ public class CExploreFragment extends Fragment
     private DatePickerDialog _datePicker;
     private Animation _animBlinking;
     private ArrayList<String> _tempoStorage;
+    private TextView _welcomeText;
 
     private DatePickerDialog.OnDateSetListener _onDateSetListener = new DatePickerDialog.OnDateSetListener()
     {
@@ -53,6 +57,8 @@ public class CExploreFragment extends Fragment
             _datePickerText.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
         }
     };
+    private FirebaseUser _currentUser;
+    private String _userName;
 
 
     public CExploreFragment()
@@ -71,6 +77,7 @@ public class CExploreFragment extends Fragment
         _toSpinner = _view.findViewById(R.id.to_spinner);
         _searchButton = _view.findViewById(R.id.search_button);
         _datePickerText = _view.findViewById(R.id.date_picker_text);
+        _welcomeText = _view.findViewById(R.id.welcome_title_text);
 
         _tempoStorage = new ArrayList<>();
 
@@ -78,7 +85,33 @@ public class CExploreFragment extends Fragment
         prepareData();
         fromSpinner();
         toSpinner();
+        initSearching();
 
+
+        return _view;
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        setupUserName();
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void setupUserName()
+    {
+        FirebaseAuth _auth = FirebaseAuth.getInstance();
+        _currentUser = _auth.getCurrentUser();
+
+
+        _userName = Objects.requireNonNull(_currentUser).getDisplayName();
+
+        _welcomeText.setText("Karibu " + getFirstName(Objects.requireNonNull(_userName)) + ",");
+    }
+
+    private void initSearching()
+    {
         _searchButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -108,8 +141,6 @@ public class CExploreFragment extends Fragment
 
             }
         });
-
-        return _view;
     }
 
     private void errorAnimActivator()
@@ -120,6 +151,22 @@ public class CExploreFragment extends Fragment
         _toSpinner.startAnimation(_animBlinking);
     }
 
+    private String getFirstName(String userName)
+    {
+        int index = userName.indexOf(' ');
+
+        String _capsName = userName.substring(0, 1).toUpperCase() + userName.substring(1);
+
+        if(index > -1) //Check if there is more than one word
+        {
+            return _capsName.substring(0, index).trim(); //Extract first word
+        }
+        else
+        {
+            return _capsName; //Username text is the first word itself.
+        }
+
+    }
 
     private void spinnerErrorChecker()
     {
@@ -173,6 +220,7 @@ public class CExploreFragment extends Fragment
     private void datePickerDialog(int _year, int _month, int _day)
     {
         _datePicker = new DatePickerDialog(Objects.requireNonNull(getContext()), _onDateSetListener, _year, _month, _day);
+        _datePicker.setTitle("Chagua Tarehe");
         _datePicker.show();
     }
 
@@ -258,5 +306,6 @@ public class CExploreFragment extends Fragment
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
 
 }

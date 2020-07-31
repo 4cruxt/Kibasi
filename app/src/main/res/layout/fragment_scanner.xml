@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mid.qrcode.ScannerFragment">
+
+    <com.budiyev.android.codescanner.CodeScannerView
+        android:id="@+id/mid_code_scanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:autoFocusButtonColor="@color/colorAccent"
+        app:autoFocusButtonVisible="true"
+        app:flashButtonColor="@color/colorAccent"
+        app:flashButtonVisible="true"
+        app:frameAspectRatioHeight="1"
+        app:frameAspectRatioWidth="1"
+        app:frameColor="@color/colorAccent"
+        app:frameCornersRadius="0dp"
+        app:frameCornersSize="50dp"
+        app:frameSize="0.75"
+        app:frameThickness="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maskColor="@color/colorBackgroundGreen">
+
+    </com.budiyev.android.codescanner.CodeScannerView>
+
+    <TextView
+        android:id="@+id/mid_scanned_pss_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Juma Hassan Honezia"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/mid_code_scanner"
+        app:layout_constraintTop_toTopOf="@+id/mid_code_scanner"
+        app:layout_constraintVertical_bias="0.78" />
+
+    <Button
+        android:id="@+id/mid_scanned_verifier_button"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/selected_seat"
+        android:text="Imelipiwa"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/mid_scanned_pss_name"
+        app:layout_constraintStart_toStartOf="@+id/mid_scanned_pss_name"
+        app:layout_constraintTop_toBottomOf="@+id/mid_scanned_pss_name" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

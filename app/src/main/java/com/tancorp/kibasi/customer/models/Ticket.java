@@ -9,6 +9,11 @@ public class Ticket
     private String _busSeatTicket;
     private String _busDateTicket;
 
+    public Ticket()
+    {
+
+    }
+
     public Ticket(int busImageTicket, int dotVerifierTicket, String busNameTicket, String busNumberTicket, String busSeatTicket, String busDateTicket)
     {
         _busImageTicket = busImageTicket;

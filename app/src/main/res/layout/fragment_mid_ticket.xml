@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mid_ticket_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundWhite"
+    tools:context=".mid.MidTicketFragment">
+
+    <FrameLayout
+        android:id="@+id/mid_ticket_background"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/mid_ticket_verifier_button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/white_background"
+        android:text="Hakiki"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="@+id/mid_ticket_icon"
+        app:layout_constraintEnd_toEndOf="@+id/mid_ticket_background"
+        app:layout_constraintStart_toEndOf="@+id/mid_ticket_icon"
+        app:layout_constraintTop_toTopOf="@+id/mid_ticket_icon" />
+
+    <TextView
+        android:id="@+id/mid_ticket_number_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TIKETI"
+        android:textColor="@color/colorBackgroundWhite"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/mid_ticket_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mid_ticket_verifier_button" />
+
+    <TextView
+        android:id="@+id/mid_ticket_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="20"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/mid_ticket_icon"
+        app:layout_constraintEnd_toEndOf="@+id/mid_ticket_number_title"
+        app:layout_constraintStart_toStartOf="@+id/mid_ticket_number_title"
+        app:layout_constraintTop_toBottomOf="@+id/mid_ticket_number_title" />
+
+    <ImageView
+        android:id="@+id/mid_ticket_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/mid_ticket_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mid_ticket_background"
+        app:srcCompat="@drawable/ticket_24dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mid_ticket_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mid_ticket_background" />
+</androidx.constraintlayout.widget.ConstraintLayout>

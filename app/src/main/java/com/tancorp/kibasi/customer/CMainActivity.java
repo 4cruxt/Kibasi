@@ -2,6 +2,7 @@ package com.tancorp.kibasi.customer;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -12,7 +13,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.tancorp.kibasi.R;
+import com.tancorp.kibasi.customer.authentications.CAuthActivity;
 import com.tancorp.kibasi.customer.navigations.CExploreFragment;
 import com.tancorp.kibasi.customer.navigations.CPassengerFragment;
 import com.tancorp.kibasi.customer.navigations.CTicketFragment;
@@ -31,6 +35,8 @@ public class CMainActivity extends AppCompatActivity
     private Fragment _fragment;
     public BottomNavigationView _navigationView;
     private String _fragment_id;
+    private FirebaseAuth _firebaseAuth;
+    private FirebaseUser currentUser;
 
     private BottomNavigationView.OnNavigationItemSelectedListener _onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener()
     {
@@ -69,12 +75,28 @@ public class CMainActivity extends AppCompatActivity
 
         _navigationView = findViewById(R.id.bottom_navigation_view);
         _navigationView.setOnNavigationItemSelectedListener(_onNavigationItemSelectedListener);
+        _firebaseAuth = FirebaseAuth.getInstance();
+        currentUser = _firebaseAuth.getCurrentUser();
 
         _fragment_id = getIntent().getStringExtra("Fragment_id");
 
         fragmentSwitch();
 
 
+    }
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+        if(currentUser == null)
+        {
+            Intent authActivity = new Intent(CMainActivity.this, CAuthActivity.class);
+            authActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            authActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(authActivity);
+            finish();
+        }
     }
 
     private void fragmentSwitch()

@@ -3,13 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.tancorp.kibasi">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name="androidx.multidex.MultiDexApplication"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".managers.MRegisterMidActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".managers.MRegisterBusActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mid.MidMainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mid.authentication.MidLoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TicketTheme" />
+
         <activity
             android:name=".managers.MOnboardScreenActivity"
             android:screenOrientation="portrait"
@@ -26,7 +44,6 @@
             android:name=".managers.authentications.MAuthActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TicketTheme" />
-
         <activity
             android:name=".managers.MMainActivity"
             android:screenOrientation="portrait" />

@@ -16,14 +16,16 @@ import com.tancorp.kibasi.customer.CBookedTicketActivity;
 import com.tancorp.kibasi.customer.CTicketPaymentActivity;
 import com.tancorp.kibasi.customer.models.Ticket;
 
+import java.util.ArrayList;
+
 
 public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder>
 {
-    private Ticket[] _ticketListData;
+    private ArrayList<Ticket> _ticketListData;
     private boolean _isTicketPaid;
 
 
-    public TicketAdapter(Ticket[] ticketListData, boolean isTicketPaid)
+    public TicketAdapter(ArrayList<Ticket> ticketListData, boolean isTicketPaid)
     {
         _ticketListData = ticketListData;
         _isTicketPaid = isTicketPaid;
@@ -41,12 +43,12 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position)
     {
-        holder._busTicketImage.setImageResource(_ticketListData[position].getBusImageTicket());
-        holder._dotVerifierTicketImage.setImageResource(_ticketListData[position].getDotVerifierTicket());
-        holder._busTicketName.setText(_ticketListData[position].getBusNameTicket());
-        holder._busTicketNumber.setText(_ticketListData[position].getBusNumberTicket());
-        holder._busTicketSeat.setText(_ticketListData[position].getBusSeatTicket());
-        holder._busTicketDate.setText(_ticketListData[position].getBusDateTicket());
+        holder._busTicketImage.setImageResource(_ticketListData.get(position).getBusImageTicket());
+        holder._dotVerifierTicketImage.setImageResource(_ticketListData.get(position).getDotVerifierTicket());
+        holder._busTicketName.setText(_ticketListData.get(position).getBusNameTicket());
+        holder._busTicketNumber.setText(_ticketListData.get(position).getBusNumberTicket());
+        holder._busTicketSeat.setText(_ticketListData.get(position).getBusSeatTicket());
+        holder._busTicketDate.setText(_ticketListData.get(position).getBusDateTicket());
         holder._layoutContainer.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -74,7 +76,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     @Override
     public int getItemCount()
     {
-        return _ticketListData.length;
+        return _ticketListData.size();
     }
 
 
